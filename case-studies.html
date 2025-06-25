@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies - Agentic Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #164e63 0%, #0c4a6e 50%, #075985 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-glass {
+            background: rgba(22, 78, 99, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.4;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-25px) rotate(120deg); }
+            66% { transform: translateY(15px) rotate(240deg); }
+        }
+
+        .blob-1 {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, #22d3ee, #06b6d4);
+            top: 15%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #06b6d4, #0891b2);
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 5s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 25px 50px rgba(6, 182, 212, 0.1);
+        }
+
+        .metric-card {
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mobile-menu {
+            background: rgba(22, 78, 99, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+
+    <!-- Navigation -->
+    <header class="nav-glass fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-space font-bold gradient-text">
+                    Agentic Solutions
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">About</a>
+                    <a href="services.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Services</a>
+                    <a href="case-studies.html" class="text-cyan-300 hover:text-cyan-100 transition-colors font-medium">Case Studies</a>
+                    <a href="blog.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Blog</a>
+                    <a href="contact.html" class="btn-primary">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-cyan-300 text-2xl">
+                    <span id="menu-icon">☰</span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu rounded-2xl p-4">
+                <a href="index.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">About</a>
+                <a href="services.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Services</a>
+                <a href="case-studies.html" class="block py-3 text-cyan-300 font-medium">Case Studies</a>
+                <a href="blog.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Blog</a>
+                <a href="contact.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="font-space text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                Real Impact from
+                <span class="gradient-text">Autonomous AI</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                Discover how leading organizations are transforming their operations with intelligent agents that deliver measurable business results.
+            </p>
+        </div>
+    </section>
+
+    <!-- Case Study 1: FinanceFirst -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="case-study-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            Financial Services
+                        </div>
+                        <h2 class="font-space text-3xl md:text-4xl font-bold mb-6 gradient-text">
+                            FinanceFirst: Automated Trading Operations
+                        </h2>
+                        <p class="text-slate-300 text-lg mb-6 leading-relaxed">
+                            A leading investment firm deployed our autonomous trading agents to optimize portfolio management and risk assessment. The AI agents analyze market conditions, execute trades, and rebalance portfolios 24/7 without human intervention.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Challenge</h4>
+                                    <p class="text-slate-400">Manual trading operations limited to business hours, missing global market opportunities and requiring constant analyst oversight.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">🤖</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Solution</h4>
+                                    <p class="text-slate-400">Multi-agent system with real-time market analysis, risk assessment, and autonomous execution capabilities across global markets.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">847%</div>
+                            <p class="text-slate-300 font-medium">ROI Increase</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">24/7</div>
+                            <p class="text-slate-300 font-medium">Operations</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">63%</div>
+                            <p class="text-slate-300 font-medium">Risk Reduction</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">12ms</div>
+                            <p class="text-slate-300 font-medium">Decision Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 2: GlobalLogistics -->
+    <section class="py-20 px-6 glass">
+        <div class="container mx-auto max-w-6xl">
+            <div class="case-study-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="metric-card">
+                                <div class="text-3xl font-bold text-cyan-300 mb-2">94%</div>
+                                <p class="text-slate-300 font-medium">Efficiency Gain</p>
+                            </div>
+                            <div class="metric-card">
+                                <div class="text-3xl font-bold text-cyan-300 mb-2">$12M</div>
+                                <p class="text-slate-300 font-medium">Annual Savings</p>
+                            </div>
+                            <div class="metric-card">
+                                <div class="text-3xl font-bold text-cyan-300 mb-2">72h</div>
+                                <p class="text-slate-300 font-medium">Faster Delivery</p>
+                            </div>
+                            <div class="metric-card">
+                                <div class="text-3xl font-bold text-cyan-300 mb-2">99.7%</div>
+                                <p class="text-slate-300 font-medium">Accuracy Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            Supply Chain & Logistics
+                        </div>
+                        <h2 class="font-space text-3xl md:text-4xl font-bold mb-6 gradient-text">
+                            GlobalLogistics: Smart Supply Chain Optimization
+                        </h2>
+                        <p class="text-slate-300 text-lg mb-6 leading-relaxed">
+                            An international logistics company implemented our autonomous agents to optimize their global supply chain operations. The AI system manages inventory, predicts demand, and coordinates shipments across 40+ countries.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Challenge</h4>
+                                    <p class="text-slate-400">Complex multi-country logistics with frequent delays, inventory overstock, and manual coordination across time zones.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">🤖</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Solution</h4>
+                                    <p class="text-slate-400">Intelligent agent network for demand forecasting, route optimization, and real-time supply chain coordination with predictive analytics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 3: HealthcarePlus -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="case-study-card">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                            Healthcare Technology
+                        </div>
+                        <h2 class="font-space text-3xl md:text-4xl font-bold mb-6 gradient-text">
+                            HealthcarePlus: Patient Care Automation
+                        </h2>
+                        <p class="text-slate-300 text-lg mb-6 leading-relaxed">
+                            A major healthcare network deployed autonomous AI agents to streamline patient care workflows, from scheduling to follow-up care, improving patient outcomes while reducing administrative burden.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">✓</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Challenge</h4>
+                                    <p class="text-slate-400">Overwhelmed staff, long patient wait times, inconsistent follow-up care, and manual administrative processes consuming 60% of staff time.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-cyan-300 text-sm">🤖</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-cyan-300 mb-1">Solution</h4>
+                                    <p class="text-slate-400">Autonomous patient care agents handling scheduling, medication reminders, care plan optimization, and personalized health monitoring.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">76%</div>
+                            <p class="text-slate-300 font-medium">Admin Reduction</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">89%</div>
+                            <p class="text-slate-300 font-medium">Patient Satisfaction</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">45min</div>
+                            <p class="text-slate-300 font-medium">Wait Time Reduction</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="text-3xl font-bold text-cyan-300 mb-2">98%</div>
+                            <p class="text-slate-300 font-medium">Follow-up Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Summary -->
+    <section class="py-20 px-6 glass">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
+                    Proven Results Across Industries
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Our autonomous AI agents consistently deliver measurable business impact across diverse sectors and use cases.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-cyan-300 mb-2">500+</div>
+                    <p class="text-slate-300 font-medium">AI Agents Deployed</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-cyan-300 mb-2">$125M</div>
+                    <p class="text-slate-300 font-medium">Total Client Savings</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-cyan-300 mb-2">15x</div>
+                    <p class="text-slate-300 font-medium">Average ROI</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-cyan-300 mb-2">99.9%</div>
+                    <p class="text-slate-300 font-medium">Uptime Achievement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-cyan-600 to-blue-600">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-space text-3xl md:text-5xl font-bold text-white mb-6">
+                Ready to Write Your Success Story?
+            </h2>
+            <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+                Join these industry leaders in transforming operations with autonomous AI. Let's build your custom solution.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="contact.html" class="bg-white text-blue-600 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-100 transition-colors">
+                    Start Your Transformation
+                </a>
+                <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                    Explore Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass py-16 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html" class="text-2xl font-space font-bold gradient-text mb-4 block">
+                        Agentic Solutions
+                    </a>
+                    <p class="text-slate-400 mb-6 max-w-md">
+                        Building the future of autonomous AI. Transforming businesses with intelligent agents that think, plan, and act independently.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-space font-semibold text-white mb-4">Company</h4>
+                    <div class="space-y-2">
+                        <a href="about.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">About Us</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Services</a>
+                        <a href="case-studies.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Case Studies</a>
+                        <a href="blog.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Blog</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-space font-semibold text-white mb-4">Connect</h4>
+                    <div class="space-y-2">
+                        <a href="contact.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Contact</a>
+                        <a href="#" class="block text-slate-400 hover:text-cyan-300 transition-colors">LinkedIn</a>
+                        <a href="#" class="block text-slate-400 hover:text-cyan-300 transition-colors">Twitter</a>
+                        <a href="#" class="block text-slate-400 hover:text-cyan-300 transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-12 pt-8 text-center">
+                <p class="text-slate-400">
+                    © 2025 Agentic Solutions. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(22, 78, 99, 0.95)';
+            } else {
+                header.style.background = 'rgba(22, 78, 99, 0.8)';
+            }
+        });
+    </script>
+</body>
+
+</html>

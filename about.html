@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Agentic Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-glass {
+            background: rgba(30, 27, 75, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 25%, #7c3aed 100%);
+        }
+
+        .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            33% { transform: translateY(-30px) translateX(20px); }
+            66% { transform: translateY(20px) translateX(-15px); }
+        }
+
+        .blob-1 {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, #a855f7, #ec4899);
+            top: 15%;
+            right: 15%;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            bottom: 25%;
+            left: 10%;
+            animation-delay: 3s;
+        }
+
+        .blob-3 {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #7c3aed, #3b82f6);
+            top: 50%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.4);
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .card-modern {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #a855f7, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(168, 85, 247, 0.3);
+            box-shadow: 0 25px 50px rgba(168, 85, 247, 0.1);
+        }
+
+        .card-modern:hover::before {
+            opacity: 1;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .mobile-menu {
+            background: rgba(30, 27, 75, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+
+    <!-- Navigation -->
+    <header class="nav-glass fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-space font-bold gradient-text">
+                    Agentic Solutions
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-slate-300 hover:text-purple-300 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-purple-300 hover:text-purple-100 transition-colors font-medium">About</a>
+                    <a href="services.html" class="text-slate-300 hover:text-purple-300 transition-colors font-medium">Services</a>
+                    <a href="case-studies.html" class="text-slate-300 hover:text-purple-300 transition-colors font-medium">Case Studies</a>
+                    <a href="blog.html" class="text-slate-300 hover:text-purple-300 transition-colors font-medium">Blog</a>
+                    <a href="contact.html" class="btn-primary">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-purple-300 text-2xl">
+                    <span id="menu-icon">☰</span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu rounded-2xl p-4">
+                <a href="index.html" class="block py-3 text-slate-300 hover:text-purple-300 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-purple-300 font-medium">About</a>
+                <a href="services.html" class="block py-3 text-slate-300 hover:text-purple-300 transition-colors">Services</a>
+                <a href="case-studies.html" class="block py-3 text-slate-300 hover:text-purple-300 transition-colors">Case Studies</a>
+                <a href="blog.html" class="block py-3 text-slate-300 hover:text-purple-300 transition-colors">Blog</a>
+                <a href="contact.html" class="block py-3 text-slate-300 hover:text-purple-300 transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="font-space text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                Building the Future of
+                <span class="gradient-text">Autonomous AI</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                We're a team of AI researchers, engineers, and strategists dedicated to creating intelligent agents that revolutionize how businesses operate.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="card-modern">
+                    <div class="text-5xl mb-6">🎯</div>
+                    <h2 class="font-space text-2xl font-bold mb-6 gradient-text">Our Mission</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        To democratize autonomous AI by building intelligent agents that think, learn, and act independently. We believe every organization should have access to AI that doesn't just assist, but truly understands and executes complex business objectives.
+                    </p>
+                </div>
+                
+                <div class="card-modern">
+                    <div class="text-5xl mb-6">🔮</div>
+                    <h2 class="font-space text-2xl font-bold mb-6 gradient-text">Our Vision</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        A world where businesses operate with unprecedented efficiency through autonomous AI agents. We envision a future where human creativity is amplified by intelligent machines that handle complex operational tasks seamlessly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 px-6 glass-strong">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
+                    Our Core Values
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    The principles that guide everything we build and every relationship we form.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Innovation First</h3>
+                    <p class="text-slate-400">We push the boundaries of what's possible with AI, constantly exploring new frontiers in autonomous intelligence.</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Human-Centric</h3>
+                    <p class="text-slate-400">Our AI agents are designed to augment human capabilities, not replace them. We prioritize ethical AI development.</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Results Driven</h3>
+                    <p class="text-slate-400">Every agent we build is measured by real business impact, not just technical sophistication.</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">🔒</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Security First</h3>
+                    <p class="text-slate-400">Enterprise-grade security and privacy protection are built into every solution from the ground up.</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">🌱</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Continuous Learning</h3>
+                    <p class="text-slate-400">We embrace failure as learning opportunities and constantly evolve our approaches based on real-world feedback.</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="font-space text-xl font-semibold mb-4 text-purple-300">Scale & Speed</h3>
+                    <p class="text-slate-400">Our solutions are built to scale from startup to enterprise while maintaining rapid deployment capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
+                    Meet Our Team
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    A diverse group of AI experts, researchers, and innovators working together to shape the future of autonomous intelligence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="team-card">
+                    <div class="team-avatar">DS</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">Dr. Sarah Chen</h3>
+                    <p class="text-slate-300 font-medium mb-3">CEO & Co-Founder</p>
+                    <p class="text-slate-400 text-sm">Former AI Research Director at DeepMind. PhD in Machine Learning from Stanford. 15+ years in autonomous systems.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">MR</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">Marcus Rodriguez</h3>
+                    <p class="text-slate-300 font-medium mb-3">CTO & Co-Founder</p>
+                    <p class="text-slate-400 text-sm">Ex-Tesla Autopilot team lead. MS Computer Science from MIT. Expert in multi-agent systems and real-time AI.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">EM</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">Dr. Elena Müller</h3>
+                    <p class="text-slate-300 font-medium mb-3">VP of Research</p>
+                    <p class="text-slate-400 text-sm">AI Ethics researcher from Oxford. Pioneering work in responsible autonomous agent development and safety protocols.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">JS</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">James Sullivan</h3>
+                    <p class="text-slate-300 font-medium mb-3">VP of Engineering</p>
+                    <p class="text-slate-400 text-sm">Former Google Brain engineer. Expert in distributed systems and large-scale AI infrastructure deployment.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">AP</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">Aria Patel</h3>
+                    <p class="text-slate-300 font-medium mb-3">Head of Product</p>
+                    <p class="text-slate-400 text-sm">Product strategy veteran from OpenAI. Specializes in translating cutting-edge AI research into practical business solutions.</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">DK</div>
+                    <h3 class="font-space text-xl font-semibold text-purple-300 mb-2">David Kim</h3>
+                    <p class="text-slate-300 font-medium mb-3">Head of Business Development</p>
+                    <p class="text-slate-400 text-sm">Former McKinsey partner with 20+ years in enterprise transformation. Expert in AI adoption strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6 hero-gradient">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-space text-3xl md:text-5xl font-bold text-white mb-6">
+                Join Our Mission
+            </h2>
+            <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+                Ready to be part of the autonomous AI revolution? Let's build the future together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="contact.html" class="bg-white text-purple-600 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-100 transition-colors">
+                    Get Started
+                </a>
+                <a href="services.html" class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white hover:text-purple-600 transition-colors">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass py-16 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="index.html" class="text-2xl font-space font-bold gradient-text mb-4 block">
+                        Agentic Solutions
+                    </a>
+                    <p class="text-slate-400 mb-6 max-w-md">
+                        Building the future of autonomous AI. Transforming businesses with intelligent agents that think, plan, and act independently.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-space font-semibold text-white mb-4">Company</h4>
+                    <div class="space-y-2">
+                        <a href="about.html" class="block text-slate-400 hover:text-purple-300 transition-colors">About Us</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-purple-300 transition-colors">Services</a>
+                        <a href="case-studies.html" class="block text-slate-400 hover:text-purple-300 transition-colors">Case Studies</a>
+                        <a href="blog.html" class="block text-slate-400 hover:text-purple-300 transition-colors">Blog</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-space font-semibold text-white mb-4">Connect</h4>
+                    <div class="space-y-2">
+                        <a href="contact.html" class="block text-slate-400 hover:text-purple-300 transition-colors">Contact</a>
+                        <a href="#" class="block text-slate-400 hover:text-purple-300 transition-colors">LinkedIn</a>
+                        <a href="#" class="block text-slate-400 hover:text-purple-300 transition-colors">Twitter</a>
+                        <a href="#" class="block text-slate-400 hover:text-purple-300 transition-colors">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 mt-12 pt-8 text-center">
+                <p class="text-slate-400">
+                    © 2025 Agentic Solutions. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 27, 75, 0.95)';
+            } else {
+                header.style.background = 'rgba(30, 27, 75, 0.8)';
+            }
+        });
+    </script>
+</body>
+
+</html>
