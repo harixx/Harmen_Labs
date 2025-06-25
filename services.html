@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Agentic Solutions</title>
+    <title>Services - Software Development Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #e2e8f0;
             min-height: 100vh;
         }
@@ -37,14 +37,20 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
         .nav-glass {
-            background: rgba(12, 74, 110, 0.8);
+            background: rgba(15, 15, 35, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(6, 182, 212, 0.2);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0891b2 100%);
+            background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -59,32 +65,41 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            25% { transform: translateY(-20px) translateX(15px); }
-            50% { transform: translateY(10px) translateX(-10px); }
-            75% { transform: translateY(-15px) translateX(5px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(10px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
         }
 
         .blob-1 {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #0ea5e9, #06b6d4);
-            top: 20%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            top: 10%;
             right: 10%;
             animation-delay: 0s;
         }
 
         .blob-2 {
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(45deg, #06b6d4, #0891b2);
-            bottom: 30%;
-            left: 15%;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+            bottom: 20%;
+            left: 5%;
             animation-delay: 4s;
         }
 
+        .blob-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #3b82f6, #ec4899);
+            top: 60%;
+            right: 70%;
+            animation-delay: 8s;
+        }
+
         .btn-primary {
-            background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
             color: white;
             padding: 16px 32px;
             border-radius: 16px;
@@ -98,12 +113,13 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
+            background: linear-gradient(135deg, #0891b2 0%, #0c4a6e 100%);
         }
 
         .card-modern {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             padding: 32px;
             transition: all 0.4s ease;
@@ -111,31 +127,85 @@
             overflow: hidden;
         }
 
+        .card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .card-modern:hover {
             transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border-color: rgba(6, 182, 212, 0.3);
             box-shadow: 0 25px 50px rgba(6, 182, 212, 0.1);
         }
 
+        .card-modern:hover::before {
+            opacity: 1;
+        }
+
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.04);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 24px;
+            padding: 32px;
             transition: all 0.3s ease;
-            height: 100%;
+            position: relative;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
             border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 16px;
+            font-size: 1.2rem;
         }
 
         .mobile-menu {
-            background: rgba(12, 74, 110, 0.95);
+            background: rgba(15, 15, 35, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(6, 182, 212, 0.1);
         }
@@ -146,39 +216,40 @@
     <!-- Floating Background Elements -->
     <div class="floating-blob blob-1"></div>
     <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
 
     <!-- Navigation -->
     <header class="nav-glass fixed w-full top-0 z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="text-2xl font-space font-bold gradient-text">
-                    Agentic Solutions
+                    Software Solutions Agency
                 </a>
-                
+
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-slate-300 hover:text-sky-300 transition-colors font-medium">Home</a>
-                    <a href="about.html" class="text-slate-300 hover:text-sky-300 transition-colors font-medium">About</a>
-                    <a href="services.html" class="text-sky-300 hover:text-sky-100 transition-colors font-medium">Services</a>
-                    <a href="case-studies.html" class="text-slate-300 hover:text-sky-300 transition-colors font-medium">Case Studies</a>
-                    <a href="blog.html" class="text-slate-300 hover:text-sky-300 transition-colors font-medium">Blog</a>
+                    <a href="index.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Home</a>
+                    <a href="about.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">About</a>
+                    <a href="services.html" class="text-cyan-300 hover:text-cyan-100 transition-colors font-medium">Services</a>
+                    <a href="case-studies.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Case Studies</a>
+                    <a href="blog.html" class="text-slate-300 hover:text-cyan-300 transition-colors font-medium">Blog</a>
                     <a href="contact.html" class="btn-primary">Get Started</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-sky-300 text-2xl">
+                <button id="mobile-menu-btn" class="md:hidden text-cyan-300 text-2xl">
                     <span id="menu-icon">☰</span>
                 </button>
             </div>
 
             <!-- Mobile Navigation -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 mobile-menu rounded-2xl p-4">
-                <a href="index.html" class="block py-3 text-slate-300 hover:text-sky-300 transition-colors">Home</a>
-                <a href="about.html" class="block py-3 text-slate-300 hover:text-sky-300 transition-colors">About</a>
-                <a href="services.html" class="block py-3 text-sky-300 font-medium">Services</a>
-                <a href="case-studies.html" class="block py-3 text-slate-300 hover:text-sky-300 transition-colors">Case Studies</a>
-                <a href="blog.html" class="block py-3 text-slate-300 hover:text-sky-300 transition-colors">Blog</a>
-                <a href="contact.html" class="block py-3 text-slate-300 hover:text-sky-300 transition-colors">Contact</a>
+                <a href="index.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Home</a>
+                <a href="about.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">About</a>
+                <a href="services.html" class="block py-3 text-cyan-300 font-medium">Services</a>
+                <a href="case-studies.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Case Studies</a>
+                <a href="blog.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Blog</a>
+                <a href="contact.html" class="block py-3 text-slate-300 hover:text-cyan-300 transition-colors">Contact</a>
             </div>
         </nav>
     </header>
@@ -187,212 +258,247 @@
     <section class="pt-32 pb-20 px-6">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="font-space text-4xl md:text-6xl font-bold mb-8 leading-tight">
-                Autonomous AI Services for
-                <span class="gradient-text">Every Business Need</span>
+                Complete Software <span class="gradient-text">Development Services</span>
             </h1>
             <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-                From strategy to deployment, we deliver intelligent agents that transform how your organization operates, scales, and succeeds.
+                From strategic consulting to deployment and maintenance, we deliver end-to-end software solutions 
+                that transform your business operations and accelerate growth.
             </p>
         </div>
     </section>
 
-    <!-- Services Overview -->
+    <!-- Core Services -->
     <section class="py-20 px-6">
         <div class="container mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- AI Strategy & Consulting -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">🎯</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">AI Strategy & Consulting</h3>
-                    <p class="text-slate-300 mb-6">Define your autonomous AI roadmap with expert guidance tailored to your business objectives and industry challenges.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• AI Readiness Assessment</li>
-                        <li>• Strategic Planning & Roadmapping</li>
-                        <li>• ROI Analysis & Business Case Development</li>
-                        <li>• Technology Stack Recommendations</li>
-                    </ul>
+            <div class="text-center mb-16">
+                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
+                    Our Core Service Areas
+                </h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    Comprehensive software development services designed to meet every aspect of your digital transformation journey.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Strategic Consulting & Discovery -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🎯</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Strategic Consulting & Discovery</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Illuminate the path from idea to execution.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Data-driven feasibility studies, market research, and technical roadmaps ensure you start on solid ground.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Let's map your future <span class="ml-2">→</span>
+                    </a>
                 </div>
 
-                <!-- Custom Agent Development -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">🤖</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">Custom Agent Development</h3>
-                    <p class="text-slate-300 mb-6">Build intelligent agents specifically designed for your unique business processes and operational requirements.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• Multi-Agent System Architecture</li>
-                        <li>• Domain-Specific Agent Training</li>
-                        <li>• Integration with Existing Systems</li>
-                        <li>• Performance Optimization</li>
-                    </ul>
+                <!-- Full-Cycle Product Design & Development -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🖥️</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Full-Cycle Product Design & Development</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Idea to launch, all in one place.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        UX-tested prototypes, modern web/mobile/desktop apps, AI agents and rock-solid cloud deployments—ready for your users.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Build your dream product <span class="ml-2">→</span>
+                    </a>
                 </div>
 
-                <!-- Process Automation -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">⚡</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">Intelligent Process Automation</h3>
-                    <p class="text-slate-300 mb-6">Transform complex workflows with AI agents that understand context, make decisions, and adapt to changing conditions.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• Workflow Analysis & Optimization</li>
-                        <li>• Autonomous Decision Making</li>
-                        <li>• Exception Handling & Escalation</li>
-                        <li>• Continuous Process Improvement</li>
-                    </ul>
+                <!-- Quality Assurance & Testing -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">✅</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Quality Assurance & Testing</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Launch confidently—every single time.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Automated and manual tests catch issues early; detailed reports and go/no-go checklists keep releases bulletproof.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Test with zero risk <span class="ml-2">→</span>
+                    </a>
                 </div>
 
-                <!-- Data Intelligence -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">📊</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">Data Intelligence Agents</h3>
-                    <p class="text-slate-300 mb-6">Deploy agents that autonomously analyze data, generate insights, and make data-driven recommendations in real-time.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• Automated Data Analysis</li>
-                        <li>• Real-time Insight Generation</li>
-                        <li>• Predictive Analytics</li>
-                        <li>• Intelligent Reporting</li>
-                    </ul>
+                <!-- Deployment, Maintenance & Support -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🚀</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Deployment, Maintenance & Support</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Stay live, stay fast, stay flawless.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Seamless cloud deployments, 24×7 monitoring, and rapid issue resolution keep your apps humming.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Keep your lights on <span class="ml-2">→</span>
+                    </a>
                 </div>
 
-                <!-- Customer Experience -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">💬</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">Customer Experience Agents</h3>
-                    <p class="text-slate-300 mb-6">Create sophisticated AI agents that provide personalized customer interactions and support across all touchpoints.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• Conversational AI Systems</li>
-                        <li>• Personalization Engines</li>
-                        <li>• Multi-channel Support</li>
-                        <li>• Customer Journey Optimization</li>
-                    </ul>
+                <!-- Website & Digital Presence -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🌐</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Website & Digital Presence</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Your brand's story, brilliantly told.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Responsive, SEO-optimized sites with intuitive CMS integrations drive traffic and convert visitors into customers.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Elevate your online footprint <span class="ml-2">→</span>
+                    </a>
                 </div>
 
-                <!-- Enterprise Integration -->
-                <div class="service-card">
-                    <div class="text-5xl mb-6">🔗</div>
-                    <h3 class="font-space text-xl font-bold mb-4 text-sky-300">Enterprise Integration</h3>
-                    <p class="text-slate-300 mb-6">Seamlessly integrate AI agents with your existing enterprise systems, ensuring security, compliance, and scalability.</p>
-                    <ul class="text-slate-400 space-y-2 text-sm">
-                        <li>• API Integration & Development</li>
-                        <li>• Security & Compliance Setup</li>
-                        <li>• Scalability Architecture</li>
-                        <li>• Legacy System Modernization</li>
-                    </ul>
+                <!-- Data Strategy & Engineering -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">📊</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Data Strategy & Engineering</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Turn data into your greatest asset.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Secure lakehouses, ETL pipelines, and self-serve BI dashboards deliver the insights you need, when you need them.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Command your data <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Cybersecurity & Compliance -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🛡️</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Cybersecurity & Compliance</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Lock down your digital fortress.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Pen-tests, audits, GDPR/HIPAA/CCPA compliance, and IAM best practices keep your assets—and reputation—safe.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Secure your world <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Legacy System Modernization -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🔧</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Legacy System Modernization</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Modern performance without the rewrite headache.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Cloud migrations, microservices refactors, and re-engineered architectures breathe new life into outdated systems.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Future-proof your stack <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Innovation & R&D -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">💡</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Innovation & R&D</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Prototype tomorrow's breakthroughs today.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        MVPs, PoCs, and emerging-tech advisories (blockchain, IoT, Web3, AI) accelerate your edge.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Explore the bleeding edge <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Talent Augmentation & Training -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">👥</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Talent Augmentation & Training</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Plug in top talent—instantly.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Embed our engineers, AI experts, and PMs, or upskill your team with hands-on workshops and tailored training.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Scale your brainpower <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Data Analysis Services -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🔍</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Data Analysis Services</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Know what happened—and why.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        From data pipelines to diagnostic analytics, we'll uncover the trends and root causes driving your business.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Discover hidden insights <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Data Science Services -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🧠</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Data Science Services</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Predict, prescribe, outperform.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Churn models, demand forecasts, A/B frameworks, and segmentation engines turn data into action.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        See what's next <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <!-- Machine Learning (ML) Services -->
+                <div class="service-card group">
+                    <div class="service-icon group-hover:scale-110 transition-transform">🤖</div>
+                    <h3 class="font-space text-xl font-bold mb-3 text-cyan-300">Machine Learning (ML) Services</h3>
+                    <p class="text-slate-300 mb-4 font-medium">Infuse intelligence into every workflow.</p>
+                    <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                        Custom ML, MLOps, computer vision, NLP, reinforcement learning, and generative AI—continuously learning, continuously improving.
+                    </p>
+                    <a href="contact.html" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+                        Automate with smarts <span class="ml-2">→</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Packages -->
-    <section class="py-20 px-6 glass">
+    <!-- Additional Services -->
+    <section class="py-20 px-6 glass-strong">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
                 <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
-                    Service Packages
+                    Specialized Solutions
                 </h2>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    Choose the right level of engagement for your autonomous AI journey.
+                    Advanced services for specific business needs and emerging technology requirements.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Starter Package -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card-modern text-center">
-                    <h3 class="font-space text-2xl font-bold mb-4 text-sky-300">AI Discovery</h3>
-                    <div class="text-4xl font-bold text-sky-400 mb-6">$25K</div>
-                    <p class="text-slate-300 mb-8">Perfect for organizations exploring autonomous AI potential and building initial proof of concepts.</p>
-                    <ul class="text-left text-slate-400 space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>AI Readiness Assessment</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Strategic Roadmap Development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Proof of Concept Development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Technical Architecture Design</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>4-6 week delivery</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="btn-primary w-full block text-center">Get Started</a>
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Cybersecurity & Compliance</h3>
+                    <p class="text-sm text-slate-400">Security audits, penetration testing, GDPR/HIPAA compliance, and IAM implementation</p>
                 </div>
 
-                <!-- Professional Package -->
-                <div class="card-modern text-center border-2 border-sky-400 relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-sky-400 text-blue-900 px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Popular
-                    </div>
-                    <h3 class="font-space text-2xl font-bold mb-4 text-sky-300">AI Transformation</h3>
-                    <div class="text-4xl font-bold text-sky-400 mb-6">$150K</div>
-                    <p class="text-slate-300 mb-8">Comprehensive autonomous AI implementation with custom agent development and full integration.</p>
-                    <ul class="text-left text-slate-400 space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Everything in AI Discovery</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Custom Multi-Agent Development</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Enterprise System Integration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Training & Knowledge Transfer</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>3 months post-launch support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>12-16 week delivery</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="btn-primary w-full block text-center">Get Started</a>
+                <div class="card-modern text-center">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Legacy System Modernization</h3>
+                    <p class="text-sm text-slate-400">Cloud migration, application re-platforming, and microservices architecture</p>
                 </div>
 
-                <!-- Enterprise Package -->
                 <div class="card-modern text-center">
-                    <h3 class="font-space text-2xl font-bold mb-4 text-sky-300">AI at Scale</h3>
-                    <div class="text-4xl font-bold text-sky-400 mb-6">Custom</div>
-                    <p class="text-slate-300 mb-8">Enterprise-wide autonomous AI deployment with ongoing optimization and support for large organizations.</p>
-                    <ul class="text-left text-slate-400 space-y-3 mb-8">
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Everything in AI Transformation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Multi-Department Deployment</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Advanced Security & Compliance</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Dedicated Success Manager</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>12 months ongoing support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-sky-400 mr-2">✓</span>
-                            <span>Continuous optimization</span>
-                        </li>
-                    </ul>
-                    <a href="contact.html" class="btn-primary w-full block text-center">Contact Sales</a>
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Website & Digital Presence</h3>
+                    <p class="text-sm text-slate-400">Responsive design, CMS integration, and SEO optimization</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Innovation & R&D</h3>
+                    <p class="text-sm text-slate-400">Prototyping, MVP development, and emerging technology consulting</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-4xl mb-4">👥</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Talent Augmentation</h3>
+                    <p class="text-sm text-slate-400">Staff augmentation, technical training, and team development</p>
+                </div>
+
+                <div class="card-modern text-center">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Mobile Solutions</h3>
+                    <p class="text-sm text-slate-400">Native and cross-platform mobile development with modern frameworks</p>
                 </div>
             </div>
         </div>
@@ -403,105 +509,102 @@
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16">
                 <h2 class="font-space text-3xl md:text-5xl font-bold mb-6 gradient-text">
-                    Our Proven Process
+                    Our Development Process
                 </h2>
                 <p class="text-xl text-slate-300 max-w-3xl mx-auto">
-                    A systematic approach to delivering autonomous AI solutions that drive real business impact.
+                    A proven methodology that ensures successful project delivery from concept to deployment.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-300 text-2xl font-bold mx-auto mb-4">1</div>
-                    <h3 class="font-space text-lg font-semibold text-sky-300 mb-3">Discovery & Analysis</h3>
-                    <p class="text-slate-400 text-sm">Understand your business objectives, analyze current processes, and identify optimal AI integration points.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Discovery & Planning</h3>
+                    <p class="text-sm text-slate-400">Requirements analysis, feasibility studies, and strategic roadmap development</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-300 text-2xl font-bold mx-auto mb-4">2</div>
-                    <h3 class="font-space text-lg font-semibold text-sky-300 mb-3">Design & Architecture</h3>
-                    <p class="text-slate-400 text-sm">Create detailed technical specifications and design autonomous agent architectures tailored to your needs.</p>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Design & Architecture</h3>
+                    <p class="text-sm text-slate-400">UI/UX design, system architecture, and technical specification creation</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-300 text-2xl font-bold mx-auto mb-4">3</div>
-                    <h3 class="font-space text-lg font-semibold text-sky-300 mb-3">Development & Testing</h3>
-                    <p class="text-slate-400 text-sm">Build, train, and rigorously test AI agents with comprehensive validation and performance optimization.</p>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Development & Testing</h3>
+                    <p class="text-sm text-slate-400">Agile development cycles with continuous testing and quality assurance</p>
                 </div>
-                
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-sky-500/20 rounded-full flex items-center justify-center text-sky-300 text-2xl font-bold mx-auto mb-4">4</div>
-                    <h3 class="font-space text-lg font-semibold text-sky-300 mb-3">Deploy & Optimize</h3>
-                    <p class="text-slate-400 text-sm">Seamless deployment with ongoing monitoring, optimization, and continuous improvement of agent performance.</p>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="font-space text-lg font-semibold mb-3 text-cyan-300">Deploy & Maintain</h3>
+                    <p class="text-sm text-slate-400">Production deployment with ongoing monitoring, support, and optimization</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-6 bg-gradient-to-r from-sky-600 to-blue-600">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="font-space text-3xl md:text-5xl font-bold text-white mb-6">
-                Ready to Start Your AI Journey?
-            </h2>
-            <p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-                Let's discuss how autonomous AI agents can transform your business operations and drive unprecedented growth.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="contact.html" class="bg-white text-blue-600 px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-gray-100 transition-colors">
-                    Schedule Consultation
-                </a>
-                <a href="case-studies.html" class="border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
-                    View Success Stories
-                </a>
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <div class="glass-strong rounded-3xl p-8 md:p-12 text-center">
+                <h2 class="font-space text-3xl md:text-4xl font-bold mb-6 gradient-text">
+                    Ready to Start Your Project?
+                </h2>
+                <p class="text-xl text-slate-300 mb-10">
+                    Let's discuss how our comprehensive software development services can transform your business 
+                    and drive measurable results.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="btn-primary">Start Your Project</a>
+                    <a href="case-studies.html" class="btn-secondary bg-transparent border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-2xl hover:bg-cyan-400 hover:text-white transition-all">
+                        View Our Work
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="glass py-16 px-6">
+    <footer class="py-12 px-6 border-t border-slate-800">
         <div class="container mx-auto max-w-6xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
+                <div class="md:col-span-2">
                     <a href="index.html" class="text-2xl font-space font-bold gradient-text mb-4 block">
-                        Agentic Solutions
+                        Software Solutions Agency
                     </a>
-                    <p class="text-slate-400 mb-6 max-w-md">
-                        Building the future of autonomous AI. Transforming businesses with intelligent agents that think, plan, and act independently.
+                    <p class="text-slate-400 mb-4">
+                        Transforming businesses through comprehensive software development and digital innovation.
+                    </p>
+                    <p class="text-sm text-slate-500">
+                        © 2024 Software Solutions Agency. All rights reserved.
                     </p>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-space font-semibold text-white mb-4">Company</h4>
+                    <h4 class="font-space font-semibold text-cyan-300 mb-4">Services</h4>
                     <div class="space-y-2">
-                        <a href="about.html" class="block text-slate-400 hover:text-sky-300 transition-colors">About Us</a>
-                        <a href="services.html" class="block text-slate-400 hover:text-sky-300 transition-colors">Services</a>
-                        <a href="case-studies.html" class="block text-slate-400 hover:text-sky-300 transition-colors">Case Studies</a>
-                        <a href="blog.html" class="block text-slate-400 hover:text-sky-300 transition-colors">Blog</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Strategic Consulting</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Full-Stack Development</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">AI & Machine Learning</a>
+                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Data Science</a>
                     </div>
                 </div>
-                
+
                 <div>
-                    <h4 class="font-space font-semibold text-white mb-4">Connect</h4>
-                    <div class="space-y-2">
-                        <a href="contact.html" class="block text-slate-400 hover:text-sky-300 transition-colors">Contact</a>
-                        <a href="#" class="block text-slate-400 hover:text-sky-300 transition-colors">LinkedIn</a>
-                        <a href="#" class="block text-slate-400 hover:text-sky-300 transition-colors">Twitter</a>
-                        <a href="#" class="block text-slate-400 hover:text-sky-300 transition-colors">GitHub</a>
+                    <h4 class="font-space font-semibold text-cyan-300 mb-4">Connect</h4>
+                    <div class="space-y-2 text-slate-400">
+                        <p>hello@softwaresolutions.com</p>
+                        <p>(555) 123-4567</p>
+                        <p>San Francisco, CA</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="border-t border-slate-700 mt-12 pt-8 text-center">
-                <p class="text-slate-400">
-                    © 2025 Agentic Solutions. All rights reserved.
-                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu functionality
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -509,16 +612,6 @@
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(12, 74, 110, 0.95)';
-            } else {
-                header.style.background = 'rgba(12, 74, 110, 0.8)';
-            }
         });
     </script>
 </body>
