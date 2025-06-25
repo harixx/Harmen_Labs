@@ -96,6 +96,12 @@ This is a static website for Agentic Solutions, an AI agents enterprise company.
   - Added comprehensive services overview covering 13 service categories
   - Updated team profiles to reflect development and consulting expertise
   - Maintained AI agent focus while showcasing broader technical capabilities
+- June 25, 2025: Integrated PostgreSQL database with full functionality:
+  - Created database models for contact submissions and newsletter subscriptions
+  - Added API endpoints for form submissions with proper data validation
+  - Connected all contact forms to store data in database with form type tracking
+  - Built admin dashboard on port 5001 for viewing and managing submissions
+  - Added newsletter subscription functionality with duplicate prevention
 
 ## User Preferences
 

@@ -1,7 +1,11 @@
-from flask import Flask, send_from_directory, redirect, url_for
+from flask import Flask, send_from_directory, redirect, url_for, request, jsonify
 import os
+from database import create_tables, SessionLocal, ContactSubmission, NewsletterSubscription
 
 app = Flask(__name__)
+
+# Initialize database tables
+create_tables()
 
 # Serve static files (HTML, CSS, JS, images, etc.)
 @app.route('/')
@@ -28,6 +32,75 @@ def favicon():
 def not_found(error):
     """Handle 404 errors by redirecting to index"""
     return redirect(url_for('index'))
+
+@app.route('/api/contact', methods=['POST'])
+def submit_contact():
+    """Handle contact form submissions"""
+    try:
+        data = request.get_json()
+        
+        # Create new contact submission
+        db = SessionLocal()
+        submission = ContactSubmission(
+            form_type=data.get('form_type', 'general'),
+            first_name=data.get('firstName', ''),
+            last_name=data.get('lastName', ''),
+            email=data.get('email', ''),
+            phone=data.get('phone', ''),
+            company=data.get('company', ''),
+            industry=data.get('industry', ''),
+            company_size=data.get('company-size', ''),
+            service=data.get('service', ''),
+            budget=data.get('budget', ''),
+            timeline=data.get('timeline', ''),
+            message=data.get('message', ''),
+            challenges=data.get('challenges', ''),
+            requirements=data.get('requirements', '')
+        )
+        
+        db.add(submission)
+        db.commit()
+        db.close()
+        
+        return jsonify({'success': True, 'message': 'Thank you for your submission!'})
+        
+    except Exception as e:
+        return jsonify({'success': False, 'message': 'An error occurred. Please try again.'}), 500
+
+@app.route('/api/newsletter', methods=['POST'])
+def subscribe_newsletter():
+    """Handle newsletter subscriptions"""
+    try:
+        data = request.get_json()
+        email = data.get('email', '').strip().lower()
+        industry = data.get('industry', '')
+        
+        if not email:
+            return jsonify({'success': False, 'message': 'Email is required'}), 400
+        
+        db = SessionLocal()
+        
+        # Check if email already exists
+        existing = db.query(NewsletterSubscription).filter_by(email=email).first()
+        if existing:
+            if existing.is_active:
+                return jsonify({'success': False, 'message': 'This email is already subscribed'}), 400
+            else:
+                # Reactivate subscription
+                existing.is_active = True
+                existing.industry = industry
+        else:
+            # Create new subscription
+            subscription = NewsletterSubscription(email=email, industry=industry)
+            db.add(subscription)
+        
+        db.commit()
+        db.close()
+        
+        return jsonify({'success': True, 'message': 'Successfully subscribed to newsletter!'})
+        
+    except Exception as e:
+        return jsonify({'success': False, 'message': 'An error occurred. Please try again.'}), 500
 
 @app.errorhandler(500)
 def internal_error(error):

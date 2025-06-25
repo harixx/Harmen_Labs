@@ -426,22 +426,52 @@
         }
 
         // Form submission handlers
+        async function submitForm(formElement, formType) {
+            const formData = new FormData(formElement);
+            const data = Object.fromEntries(formData.entries());
+            data.form_type = formType;
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    let message = 'Thank you for your inquiry! We\'ll get back to you within 24 hours.';
+                    if (formType === 'consultation') {
+                        message = 'Thank you! We\'ll contact you within 24 hours to schedule your strategy consultation.';
+                    } else if (formType === 'project') {
+                        message = 'Thank you! Your project request has been submitted. Our team will review and contact you within 48 hours.';
+                    }
+                    alert(message);
+                    formElement.reset();
+                } else {
+                    alert(result.message || 'An error occurred. Please try again.');
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        }
+
         document.getElementById('general-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.');
-            this.reset();
+            submitForm(this, 'general');
         });
 
         document.getElementById('consultation-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! We\'ll contact you within 24 hours to schedule your strategy consultation.');
-            this.reset();
+            submitForm(this, 'consultation');
         });
 
         document.getElementById('project-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Your project request has been submitted. Our team will review and contact you within 48 hours.');
-            this.reset();
+            submitForm(this, 'project');
         });
     </script>
 </body>

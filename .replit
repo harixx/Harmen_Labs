@@ -1,4 +1,4 @@
-modules = ["python-3.11"]
+modules = ["python-3.11", "postgresql-16"]
 
 [nix]
 channel = "stable-24_05"
@@ -15,6 +15,10 @@ author = "agent"
 task = "workflow.run"
 args = "Static Website Server"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Admin Dashboard"
+
 [[workflows.workflow]]
 name = "Static Website Server"
 author = "agent"
@@ -24,6 +28,19 @@ task = "shell.exec"
 args = "python app.py"
 waitForPort = 5000
 
+[[workflows.workflow]]
+name = "Admin Dashboard"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python admin.py"
+waitForPort = 5001
+
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 5001
+externalPort = 3000
