@@ -91,6 +91,11 @@ This is a static website for Agentic Solutions, an AI agents enterprise company.
   - Lead magnet offering free AI Readiness Assessment
   - Progressive contact forms with industry selection and form type switching
   - Enhanced homepage with comprehensive social proof and conversion elements
+- June 25, 2025: Updated About page to reflect full-service software development agency positioning:
+  - Repositioned as software development agency specializing in AI solutions
+  - Added comprehensive services overview covering 13 service categories
+  - Updated team profiles to reflect development and consulting expertise
+  - Maintained AI agent focus while showcasing broader technical capabilities
 
 ## User Preferences
 
