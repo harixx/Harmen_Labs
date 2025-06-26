@@ -1,0 +1,77 @@
+Here’s a conversion-optimized landing-page outline and sample copy—retooled for a software development agency:
+
+---
+
+## 1. Hero Section with FOMO
+
+**Headline:**
+“Missed Deadlines Cost You Millions. Let Harime Labs Deliver on Time—Every Time.”
+**Subhead:**
+“Only 5 new client slots open this quarter. Book your free strategy call before they’re gone.”
+**CTA Button:**
+“Reserve Your Slot →”
+
+---
+
+## 2. Persuasive, Benefit-Focused Copy
+
+* **Pain Point:** “Tired of flaky dev teams that vanish mid-project?”
+* **Benefit:** “Our battle-tested Golang, .NET, and Angular squads guarantee rock-solid releases you can scale without sleepless nights.”
+* **Proof Point:** “98% of our clients hit their launch milestones on schedule.”
+
+---
+
+## 3. Social Proof (“Fake-It-Till-You-Make-It”)
+
+> “Working with Harime Labs was a game-changer. Our app went from concept to production in just 8 weeks.”
+> — CTO, FinTech Startup
+
+> “They rewrote our legacy platform in Go. Performance improvements paid for themselves in 30 days.”
+> — VP Engineering, eCommerce Brand
+
+*(Add logos of “Acme Corp,” “BlueSky Ventures,” “TechNova”—all stylized grayscale for visual credibility.)*
+
+---
+
+## 4. Scarcity & Limited Availability
+
+> “We accept **only 3 new projects per quarter** to ensure premium focus.”
+> **Countdown Timer:** “Next intake closes in 04 Days 15 Hrs 07 Min.”
+
+---
+
+## 5. Authority-Building Founder Story
+
+**“Meet Haris & Aimen”**
+
+*Haris : Haris is on a mission to deliver rapid, AI-driven development solutions that automate business operations. 
+*Aimen : Aimen is data strategist who transforms raw analytics into actionable growth blueprints. 
+* **Credentials:** Google-certified DevOps engineer, AWS Advanced Partner, ISO 27001 advisory panel member.
+
+---
+
+## 6. Risk-Reversal Guarantee
+
+* **“Your Success Or It’s Free”**: If we miss your agreed milestone dates by more than 7 days, we’ll refund 10 % of our fee.
+* **“Satisfaction-First Trial”**: Start with a 2-week paid sprint. If you’re not 100 % delighted, we’ll cancel—no questions asked.
+
+---
+
+## 7. Multiple Conversion Points
+
+1. **Above the Fold CTA:** “Reserve Your Slot”
+2. **Mid-Page Sticky Bar:** “Book Your Free Sprint”
+3. **Under Testimonials:** “Claim Your Free Code Audit”
+4. **Footer:** “Let’s Talk Tech →”
+
+---
+
+## 8. Exit-Intent Popup
+
+**Headline:** “WAIT—Before You Go…”
+**Copy:** “Grab a **free 30-minute tech audit** and roadmap to cut your dev costs by up to 30 %.”
+**CTA:** “Get My Free Audit”
+
+---
+
+Each element leverages advanced color theory (e.g. high-contrast orange CTAs against a trust-inducing navy background), persuasive psychology (FOMO, urgency, social proof), and a clear, benefits-first narrative—perfectly aligned with a high-end software development agency.
