@@ -1,35 +1,34 @@
 import os
 import logging
-from datetime import datetime
 from flask import Flask, send_from_directory, redirect, url_for, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from werkzeug.middleware.proxy_fix import ProxyFix
 
+
 class Base(DeclarativeBase):
     pass
 
+
 db = SQLAlchemy(model_class=Base)
-
-# Create the app
+# create the app
 app = Flask(__name__)
-app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
-app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)  # needed for url_for to generate with https
+app.secret_key = os.environ.get("SESSION_SECRET")
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1) # needed for url_for to generate with https
 
-# Configure the database
+# configure the database, relative to the app instance folder
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
     "pool_recycle": 300,
     "pool_pre_ping": True,
 }
-
-# Initialize the app with the extension
+# initialize the app with the extension, flask-sqlalchemy >= 3.0.x
 db.init_app(app)
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
-# Define models after db initialization
+# Define models
 class ContactSubmission(db.Model):
     """Model for storing contact form submissions"""
     __tablename__ = "contact_submissions"
@@ -52,6 +51,7 @@ class ContactSubmission(db.Model):
     created_at = db.Column(db.DateTime, default=db.func.now())
     is_processed = db.Column(db.Boolean, default=False)
 
+
 class NewsletterSubscription(db.Model):
     """Model for storing newsletter subscriptions"""
     __tablename__ = "newsletter_subscriptions"
@@ -63,7 +63,6 @@ class NewsletterSubscription(db.Model):
     is_active = db.Column(db.Boolean, default=True)
 
 with app.app_context():
-    # Create all tables
     db.create_all()
 
 # Serve static files (HTML, CSS, JS, images, etc.)
