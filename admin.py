@@ -1,14 +1,32 @@
 """
 Admin dashboard for viewing database entries
 """
+import os
 from flask import Flask, render_template_string, request
-from database import SessionLocal, ContactSubmission, NewsletterSubscription, create_tables
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import DeclarativeBase
+from werkzeug.middleware.proxy_fix import ProxyFix
 from datetime import datetime
 
-app = Flask(__name__)
+class Base(DeclarativeBase):
+    pass
 
-# Ensure tables exist
-create_tables()
+db = SQLAlchemy(model_class=Base)
+app = Flask(__name__)
+app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+# Configure the database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_recycle": 300,
+    "pool_pre_ping": True,
+}
+
+db.init_app(app)
+
+# Import models from main app
+from app import ContactSubmission, NewsletterSubscription
 
 # Admin dashboard HTML template
 ADMIN_TEMPLATE = """
@@ -233,16 +251,12 @@ CONTACT_DETAIL_TEMPLATE = """
 @app.route('/admin')
 def admin_dashboard():
     """Admin dashboard showing all submissions"""
-    db = SessionLocal()
+    contacts = ContactSubmission.query.order_by(ContactSubmission.created_at.desc()).limit(50).all()
+    subscribers = NewsletterSubscription.query.order_by(NewsletterSubscription.subscribed_at.desc()).limit(50).all()
     
-    contacts = db.query(ContactSubmission).order_by(ContactSubmission.created_at.desc()).limit(50).all()
-    subscribers = db.query(NewsletterSubscription).order_by(NewsletterSubscription.subscribed_at.desc()).limit(50).all()
-    
-    contact_count = db.query(ContactSubmission).count()
-    newsletter_count = db.query(NewsletterSubscription).filter_by(is_active=True).count()
-    unprocessed_count = db.query(ContactSubmission).filter_by(is_processed=False).count()
-    
-    db.close()
+    contact_count = ContactSubmission.query.count()
+    newsletter_count = NewsletterSubscription.query.filter_by(is_active=True).count()
+    unprocessed_count = ContactSubmission.query.filter_by(is_processed=False).count()
     
     return render_template_string(ADMIN_TEMPLATE, 
                                 contacts=contacts, 
@@ -254,19 +268,15 @@ def admin_dashboard():
 @app.route('/admin/contact/<int:contact_id>', methods=['GET', 'POST'])
 def contact_detail(contact_id):
     """View and manage individual contact"""
-    db = SessionLocal()
-    contact = db.query(ContactSubmission).filter_by(id=contact_id).first()
+    contact = ContactSubmission.query.filter_by(id=contact_id).first()
     
     if not contact:
-        db.close()
         return "Contact not found", 404
     
     if request.method == 'POST':
         if 'toggle_processed' in request.form:
             contact.is_processed = not contact.is_processed
-            db.commit()
-    
-    db.close()
+            db.session.commit()
     
     return render_template_string(CONTACT_DETAIL_TEMPLATE, contact=contact)
 
