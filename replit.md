@@ -147,7 +147,7 @@ This is a static website for Harmen Labs, an AI agents enterprise company. The p
   - Fixed circular import issues and implemented proper model separation
   - Main website running on port 5000 with Static Website Server workflow
   - Admin dashboard operational on port 5001 for database management
-  - Replaced Haris avatar placeholder with professional headshot photo
+  - Replaced both Haris and Aimen avatar placeholders with professional headshot photos
   - All security and client/server separation requirements met
 
 ## User Preferences
