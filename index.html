@@ -119,6 +119,44 @@
             justify-content: center;
         }
 
+        /* Industry Leaders Animation */
+        .logos-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .logos-slide {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+
+        .logos-slide:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .logo-item {
+            display: inline-block;
+            margin: 0 3rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            filter: brightness(0.8);
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            filter: brightness(1);
+        }
+
         @media (max-width: 768px) {
             .sticky-cta {
                 position: static;
@@ -310,6 +348,155 @@
                     </div>
                     <div class="glass px-6 py-3 rounded-lg">
                         <span class="font-bold text-slate-300">Acme Corp</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Industry Leaders -->
+    <section class="py-16 px-6 border-t border-slate-700/50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-space font-bold text-slate-400 mb-8">
+                Trusted by Industry Leaders
+            </h2>
+            
+            <div class="logos-container">
+                <div class="logos-slide">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0052cc">Atlassian</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0080ff">DigitalOcean</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#7ab55c">Shopify</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#000000">Vercel</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f38020">Cloudflare</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ff6c37">Postman</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4db33d">MongoDB</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#6772e5">Stripe</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#e01e5a">Twilio</text>
+                        </svg>
+                    </div>
+                    
+                    <!-- Second set (duplicate for seamless loop) -->
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4a154b">Slack</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#29b5e8">Snowflake</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#632ca6">Datadog</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#7b42bc">HashiCorp</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#3ecf8e">Supabase</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10a37f">OpenAI</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#d97941">Anthropic</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#3d3e40">Retool</text>
+                        </svg>
+                    </div>
+                    
+                    <!-- Duplicate first set for seamless loop -->
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0052cc">Atlassian</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#0080ff">DigitalOcean</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#7ab55c">Shopify</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#000000">Vercel</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f38020">Cloudflare</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ff6c37">Postman</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4db33d">MongoDB</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#6772e5">Stripe</text>
+                        </svg>
+                    </div>
+                    <div class="logo-item">
+                        <svg class="h-8 md:h-10 w-auto" viewBox="0 0 200 60" fill="currentColor">
+                            <text x="10" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#e01e5a">Twilio</text>
+                        </svg>
                     </div>
                 </div>
             </div>

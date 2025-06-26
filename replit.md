@@ -1,8 +1,8 @@
-# Agentic Solutions - Static Website
+# Harmen Labs - Static Website
 
 ## Overview
 
-This is a static website for Agentic Solutions, an AI agents enterprise company. The project is built as a Flask-based static file server that serves multiple HTML pages with modern glassmorphism design. The website showcases the company's services, case studies, blog content, and contact information with a focus on AI agent solutions for enterprise clients.
+This is a static website for Harmen Labs, an AI agents enterprise company. The project is built as a Flask-based static file server that serves multiple HTML pages with modern glassmorphism design. The website showcases the company's services, case studies, blog content, and contact information with a focus on AI agent solutions for enterprise clients.
 
 ## System Architecture
 
@@ -121,6 +121,18 @@ This is a static website for Agentic Solutions, an AI agents enterprise company.
   - Persuasive benefit-focused copy addressing pain points and solutions
   - Scarcity indicators (limited project slots, countdown timers)
   - Professional modal-based contact forms with urgency messaging
+- June 26, 2025: Updated branding and added industry leaders section:
+  - Changed company name to "Harmen Labs" throughout all pages
+  - Implemented 5 additional advanced conversion techniques:
+    * Cognitive dissonance hook with Gartner statistics in hero section
+    * Hyper-personalized social proof with role-specific testimonials (CTO/CPO focus)
+    * Credential stacking with visual trust badges for founders (ISO 27001, AWS, Google certs)
+    * Progressive scarcity with tiered availability system (High-demand/Moderate/Available)
+    * Ghost button conversion path with tech guide download alternative
+  - Added "Trusted by Industry Leaders" section with horizontal scrolling animation
+  - Featured 17 major tech companies: Atlassian, DigitalOcean, Shopify, Vercel, Cloudflare, Postman, MongoDB, Stripe, Twilio, Slack, Snowflake, Datadog, HashiCorp, Supabase, OpenAI, Anthropic, Retool
+  - Live activity feed showing real-time project acquisitions with company-specific messaging
+  - Fixed JavaScript errors and enhanced user interaction functionality
 
 ## User Preferences
 
