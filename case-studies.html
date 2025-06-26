@@ -1,340 +1,619 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Case Studies - Harmen Labs</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .font-space {
+                font-family: "Space Grotesk", sans-serif;
+            }
+            .font-inter {
+                font-family: "Inter", sans-serif;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies - Harmen Labs</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .font-space { font-family: 'Space Grotesk', sans-serif; }
-        .font-inter { font-family: 'Inter', sans-serif; }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+            .coral-gradient {
+                background: linear-gradient(
+                    135deg,
+                    #ff6b6b 0%,
+                    #ff8e53 50%,
+                    #ff6b9d 100%
+                );
+            }
 
-        .coral-gradient {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 50%, #FF6B9D 100%);
-        }
+            .coral-text-gradient {
+                background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
 
-        .coral-text-gradient {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+            .floating-animation {
+                animation: float 6s ease-in-out infinite;
+            }
 
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+            .hero-bg {
+                background: radial-gradient(
+                        circle at 20% 50%,
+                        rgba(255, 107, 107, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 80% 20%,
+                        rgba(255, 142, 83, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 40% 80%,
+                        rgba(255, 107, 157, 0.2) 0%,
+                        transparent 50%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #0f0f23 0%,
+                        #1a1a2e 50%,
+                        #16213e 100%
+                    );
+            }
 
-        .hero-bg {
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 142, 83, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(255, 107, 157, 0.2) 0%, transparent 50%),
-                        linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%);
-        }
+            .metric-card {
+                background: linear-gradient(
+                    145deg,
+                    rgba(255, 107, 107, 0.1),
+                    rgba(255, 142, 83, 0.05)
+                );
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 107, 107, 0.2);
+            }
+        </style>
+    </head>
 
-        .metric-card {
-            background: linear-gradient(145deg, rgba(255, 107, 107, 0.1), rgba(255, 142, 83, 0.05));
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-        }
-    </style>
-</head>
-
-<body class="font-inter bg-slate-900 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-card">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="font-space text-2xl font-bold coral-text-gradient">
-                    Agentic Solutions
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-slate-300 hover:text-coral-400 transition-colors">Home</a>
-                    <a href="about.html" class="text-slate-300 hover:text-coral-400 transition-colors">About</a>
-                    <a href="services.html" class="text-slate-300 hover:text-coral-400 transition-colors">Services</a>
-                    <a href="case-studies.html" class="text-coral-400">Case Studies</a>
-                    <a href="blog.html" class="text-slate-300 hover:text-coral-400 transition-colors">Blog</a>
-                    <a href="contact.html" class="text-slate-300 hover:text-coral-400 transition-colors">Contact</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <span id="menu-icon">☰</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10">
-            <div class="px-4 py-4 space-y-2">
-                <a href="index.html" class="block text-slate-300 hover:text-coral-400 transition-colors py-2">Home</a>
-                <a href="about.html" class="block text-slate-300 hover:text-coral-400 transition-colors py-2">About</a>
-                <a href="services.html" class="block text-slate-300 hover:text-coral-400 transition-colors py-2">Services</a>
-                <a href="case-studies.html" class="block text-coral-400 py-2">Case Studies</a>
-                <a href="blog.html" class="block text-slate-300 hover:text-coral-400 transition-colors py-2">Blog</a>
-                <a href="contact.html" class="block text-slate-300 hover:text-coral-400 transition-colors py-2">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="floating-animation">
-                <h1 class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-                    Success <span class="coral-text-gradient">Stories</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                    Real transformations. Measurable results. Discover how our AI agents have revolutionized operations across industries.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Studies Grid -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Case Study 1 -->
-                <div class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center">
-                            <span class="text-2xl">🛒</span>
-                        </div>
-                        <div>
-                            <h3 class="font-space text-2xl font-bold text-white">E-commerce Revolution</h3>
-                            <p class="text-coral-400">Global Retail Chain</p>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Transformed customer support with an intelligent AI agent handling 80% of inquiries, 
-                        resulting in 24/7 availability and dramatically improved customer satisfaction.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">60%</div>
-                            <div class="text-xs text-slate-400">Faster Resolution</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">30%</div>
-                            <div class="text-xs text-slate-400">Cost Reduction</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">95%</div>
-                            <div class="text-xs text-slate-400">Satisfaction Rate</div>
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group">
-                        Learn more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <!-- Case Study 2 -->
-                <div class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center">
-                            <span class="text-2xl">💰</span>
-                        </div>
-                        <div>
-                            <h3 class="font-space text-2xl font-bold text-white">Financial Intelligence</h3>
-                            <p class="text-coral-400">Investment Firm</p>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Automated portfolio analysis and risk assessment with AI agents that process market data 
-                        in real-time, enabling faster and more accurate investment decisions.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">75%</div>
-                            <div class="text-xs text-slate-400">Time Saved</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">40%</div>
-                            <div class="text-xs text-slate-400">More Clients</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">25%</div>
-                            <div class="text-xs text-slate-400">ROI Increase</div>
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group">
-                        Learn more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <!-- Case Study 3 -->
-                <div class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center">
-                            <span class="text-2xl">🏭</span>
-                        </div>
-                        <div>
-                            <h3 class="font-space text-2xl font-bold text-white">Supply Chain Mastery</h3>
-                            <p class="text-coral-400">Manufacturing Giant</p>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Deployed predictive AI agents for inventory management and demand forecasting, 
-                        eliminating stockouts and reducing waste across global operations.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">45%</div>
-                            <div class="text-xs text-slate-400">Cost Reduction</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">90%</div>
-                            <div class="text-xs text-slate-400">Fewer Stockouts</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">35%</div>
-                            <div class="text-xs text-slate-400">Efficiency Gain</div>
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group">
-                        Learn more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-
-                <!-- Case Study 4 -->
-                <div class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center">
-                            <span class="text-2xl">🏥</span>
-                        </div>
-                        <div>
-                            <h3 class="font-space text-2xl font-bold text-white">Healthcare Innovation</h3>
-                            <p class="text-coral-400">Medical Network</p>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        Implemented diagnostic assistance AI agents that analyze patient data and medical imagery, 
-                        supporting doctors with faster, more accurate preliminary assessments.
-                    </p>
-
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">50%</div>
-                            <div class="text-xs text-slate-400">Faster Diagnosis</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">20%</div>
-                            <div class="text-xs text-slate-400">Higher Accuracy</div>
-                        </div>
-                        <div class="metric-card rounded-xl p-4 text-center">
-                            <div class="text-2xl font-bold coral-text-gradient">30%</div>
-                            <div class="text-xs text-slate-400">Workload Relief</div>
-                        </div>
-                    </div>
-
-                    <a href="contact.html" class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group">
-                        Learn more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="glass-card rounded-3xl p-12">
-                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
-                    Ready to Write Your <span class="coral-text-gradient">Success Story?</span>
-                </h2>
-                <p class="text-xl text-slate-300 mb-8 leading-relaxed">
-                    Join the ranks of industry leaders who've transformed their operations with intelligent AI agents.
-                </p>
-                <a href="contact.html" class="inline-flex items-center px-8 py-4 coral-gradient rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 group">
-                    Start Your Transformation
-                    <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <a href="index.html" class="font-space text-2xl font-bold coral-text-gradient">
+    <body class="font-inter bg-slate-900 text-white overflow-x-hidden">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a
+                        href="index.html"
+                        class="font-space text-2xl font-bold coral-text-gradient"
+                    >
                         Harmen Labs
                     </a>
-                    <p class="mt-4 text-slate-400 max-w-md">
-                        Transforming businesses with intelligent AI agents that drive efficiency, innovation, and growth.
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-slate-300 hover:text-coral-400 transition-colors"
+                            >Home</a
+                        >
+                        <a
+                            href="about.html"
+                            class="text-slate-300 hover:text-coral-400 transition-colors"
+                            >About</a
+                        >
+                        <a
+                            href="services.html"
+                            class="text-slate-300 hover:text-coral-400 transition-colors"
+                            >Services</a
+                        >
+                        <a href="case-studies.html" class="text-coral-400"
+                            >Case Studies</a
+                        >
+                        <a
+                            href="blog.html"
+                            class="text-slate-300 hover:text-coral-400 transition-colors"
+                            >Blog</a
+                        >
+                        <a
+                            href="contact.html"
+                            class="text-slate-300 hover:text-coral-400 transition-colors"
+                            >Contact</a
+                        >
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white">
+                        <span id="menu-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden glass-card border-t border-white/10"
+            >
+                <div class="px-4 py-4 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block text-slate-300 hover:text-coral-400 transition-colors py-2"
+                        >Home</a
+                    >
+                    <a
+                        href="about.html"
+                        class="block text-slate-300 hover:text-coral-400 transition-colors py-2"
+                        >About</a
+                    >
+                    <a
+                        href="services.html"
+                        class="block text-slate-300 hover:text-coral-400 transition-colors py-2"
+                        >Services</a
+                    >
+                    <a
+                        href="case-studies.html"
+                        class="block text-coral-400 py-2"
+                        >Case Studies</a
+                    >
+                    <a
+                        href="blog.html"
+                        class="block text-slate-300 hover:text-coral-400 transition-colors py-2"
+                        >Blog</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block text-slate-300 hover:text-coral-400 transition-colors py-2"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="floating-animation">
+                    <h1
+                        class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+                    >
+                        Success <span class="coral-text-gradient">Stories</span>
+                    </h1>
+                    <p
+                        class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+                    >
+                        Real transformations. Measurable results. Discover how
+                        our AI agents have revolutionized operations across
+                        industries.
                     </p>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h4 class="font-space font-semibold text-coral-400 mb-4">Company</h4>
-                    <div class="space-y-2">
-                        <a href="about.html" class="block text-slate-400 hover:text-coral-300 transition-colors">About Us</a>
-                        <a href="services.html" class="block text-slate-400 hover:text-coral-300 transition-colors">Services</a>
-                        <a href="case-studies.html" class="block text-slate-400 hover:text-coral-300 transition-colors">Case Studies</a>
-                        <a href="blog.html" class="block text-slate-400 hover:text-coral-300 transition-colors">Blog</a>
+        <!-- Case Studies Grid -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Case Study 1 -->
+                    <div
+                        class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div
+                                class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center"
+                            >
+                                <span class="text-2xl">🛒</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-space text-2xl font-bold text-white"
+                                >
+                                    E-commerce Revolution
+                                </h3>
+                                <p class="text-coral-400">
+                                    Global Retail Chain
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Transformed customer support with an intelligent AI
+                            agent handling 80% of inquiries, resulting in 24/7
+                            availability and dramatically improved customer
+                            satisfaction.
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    60%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Faster Resolution
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    30%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Cost Reduction
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    95%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Satisfaction Rate
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="contact.html"
+                            class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group"
+                        >
+                            Learn more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
                     </div>
-                </div>
 
-                <div>
-                    <h4 class="font-space font-semibold text-coral-400 mb-4">Connect</h4>
-                    <div class="space-y-2 text-slate-400">
-                        <p>hello@agenticsolutions.ai</p>
-                        <p>(555) 123-4567</p>
-                        <p>San Francisco, CA</p>
+                    <!-- Case Study 2 -->
+                    <div
+                        class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div
+                                class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center"
+                            >
+                                <span class="text-2xl">💰</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-space text-2xl font-bold text-white"
+                                >
+                                    Financial Intelligence
+                                </h3>
+                                <p class="text-coral-400">Investment Firm</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Automated portfolio analysis and risk assessment
+                            with AI agents that process market data in
+                            real-time, enabling faster and more accurate
+                            investment decisions.
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    75%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Time Saved
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    40%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    More Clients
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    25%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    ROI Increase
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="contact.html"
+                            class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group"
+                        >
+                            Learn more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div
+                        class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div
+                                class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center"
+                            >
+                                <span class="text-2xl">🏭</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-space text-2xl font-bold text-white"
+                                >
+                                    Supply Chain Mastery
+                                </h3>
+                                <p class="text-coral-400">
+                                    Manufacturing Giant
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Deployed predictive AI agents for inventory
+                            management and demand forecasting, eliminating
+                            stockouts and reducing waste across global
+                            operations.
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    45%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Cost Reduction
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    90%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Fewer Stockouts
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    35%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Efficiency Gain
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="contact.html"
+                            class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group"
+                        >
+                            Learn more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </div>
+
+                    <!-- Case Study 4 -->
+                    <div
+                        class="glass-card rounded-3xl p-8 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div
+                                class="w-16 h-16 coral-gradient rounded-2xl flex items-center justify-center"
+                            >
+                                <span class="text-2xl">🏥</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-space text-2xl font-bold text-white"
+                                >
+                                    Healthcare Innovation
+                                </h3>
+                                <p class="text-coral-400">Medical Network</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 mb-6 leading-relaxed">
+                            Implemented diagnostic assistance AI agents that
+                            analyze patient data and medical imagery, supporting
+                            doctors with faster, more accurate preliminary
+                            assessments.
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    50%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Faster Diagnosis
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    20%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Higher Accuracy
+                                </div>
+                            </div>
+                            <div class="metric-card rounded-xl p-4 text-center">
+                                <div
+                                    class="text-2xl font-bold coral-text-gradient"
+                                >
+                                    30%
+                                </div>
+                                <div class="text-xs text-slate-400">
+                                    Workload Relief
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            href="contact.html"
+                            class="inline-flex items-center text-coral-400 hover:text-coral-300 transition-colors group"
+                        >
+                            Learn more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
+        <!-- CTA Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="glass-card rounded-3xl p-12">
+                    <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
+                        Ready to Write Your
+                        <span class="coral-text-gradient">Success Story?</span>
+                    </h2>
+                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                        Join the ranks of industry leaders who've transformed
+                        their operations with intelligent AI agents.
+                    </p>
+                    <a
+                        href="contact.html"
+                        class="inline-flex items-center px-8 py-4 coral-gradient rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 group"
+                    >
+                        Start Your Transformation
+                        <span
+                            class="ml-2 group-hover:translate-x-1 transition-transform"
+                            >→</span
+                        >
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
-        });
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="md:col-span-2">
+                        <a
+                            href="index.html"
+                            class="font-space text-2xl font-bold coral-text-gradient"
+                        >
+                            Harmen Labs
+                        </a>
+                        <p class="mt-4 text-slate-400 max-w-md">
+                            Transforming businesses with intelligent AI agents
+                            that drive efficiency, innovation, and growth.
+                        </p>
+                    </div>
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.textContent = '☰';
-            }
-        });
-    </script>
-</body>
+                    <div>
+                        <h4
+                            class="font-space font-semibold text-coral-400 mb-4"
+                        >
+                            Company
+                        </h4>
+                        <div class="space-y-2">
+                            <a
+                                href="about.html"
+                                class="block text-slate-400 hover:text-coral-300 transition-colors"
+                                >About Us</a
+                            >
+                            <a
+                                href="services.html"
+                                class="block text-slate-400 hover:text-coral-300 transition-colors"
+                                >Services</a
+                            >
+                            <a
+                                href="case-studies.html"
+                                class="block text-slate-400 hover:text-coral-300 transition-colors"
+                                >Case Studies</a
+                            >
+                            <a
+                                href="blog.html"
+                                class="block text-slate-400 hover:text-coral-300 transition-colors"
+                                >Blog</a
+                            >
+                        </div>
+                    </div>
 
+                    <div>
+                        <h4
+                            class="font-space font-semibold text-coral-400 mb-4"
+                        >
+                            Connect
+                        </h4>
+                        <div class="space-y-2 text-slate-400">
+                            <p>harmenlabs@gmail.com</p>
+                            <p>+971 503-776-572</p>
+                            <p>Dubai, AE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const menuIcon = document.getElementById("menu-icon");
+
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuIcon.textContent = mobileMenu.classList.contains("hidden")
+                    ? "☰"
+                    : "✕";
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (
+                    !mobileMenuBtn.contains(e.target) &&
+                    !mobileMenu.contains(e.target)
+                ) {
+                    mobileMenu.classList.add("hidden");
+                    menuIcon.textContent = "☰";
+                }
+            });
+        </script>
+    </body>
 </html>

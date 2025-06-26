@@ -1,353 +1,625 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog & Resources - Harmen Labs</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .font-space {
+                font-family: "Space Grotesk", sans-serif;
+            }
+            .font-inter {
+                font-family: "Inter", sans-serif;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Resources - Agentic Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .font-space { font-family: 'Space Grotesk', sans-serif; }
-        .font-inter { font-family: 'Inter', sans-serif; }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+            .cyan-gradient {
+                background: linear-gradient(
+                    135deg,
+                    #06b6d4 0%,
+                    #0891b2 50%,
+                    #0e7490 100%
+                );
+            }
 
-        .cyan-gradient {
-            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 50%, #0E7490 100%);
-        }
+            .cyan-text-gradient {
+                background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
 
-        .cyan-text-gradient {
-            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+            .floating-animation {
+                animation: float 6s ease-in-out infinite;
+            }
 
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+            .hero-bg {
+                background: radial-gradient(
+                        circle at 20% 50%,
+                        rgba(6, 182, 212, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 80% 20%,
+                        rgba(8, 145, 178, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 40% 80%,
+                        rgba(14, 116, 144, 0.2) 0%,
+                        transparent 50%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #0f0f23 0%,
+                        #1a1a2e 50%,
+                        #16213e 100%
+                    );
+            }
 
-        .hero-bg {
-            background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(8, 145, 178, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(14, 116, 144, 0.2) 0%, transparent 50%),
-                        linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%);
-        }
+            .blog-card {
+                background: linear-gradient(
+                    145deg,
+                    rgba(6, 182, 212, 0.1),
+                    rgba(8, 145, 178, 0.05)
+                );
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(6, 182, 212, 0.2);
+            }
+        </style>
+    </head>
 
-        .blog-card {
-            background: linear-gradient(145deg, rgba(6, 182, 212, 0.1), rgba(8, 145, 178, 0.05));
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-        }
-    </style>
-</head>
-
-<body class="font-inter bg-slate-900 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-card">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="font-space text-2xl font-bold cyan-text-gradient">
-                    Agentic Solutions
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
-                    <a href="about.html" class="text-slate-300 hover:text-cyan-400 transition-colors">About</a>
-                    <a href="services.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
-                    <a href="case-studies.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Case Studies</a>
-                    <a href="blog.html" class="text-cyan-400">Blog</a>
-                    <a href="contact.html" class="text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <span id="menu-icon">☰</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10">
-            <div class="px-4 py-4 space-y-2">
-                <a href="index.html" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2">Home</a>
-                <a href="about.html" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2">About</a>
-                <a href="services.html" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2">Services</a>
-                <a href="case-studies.html" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2">Case Studies</a>
-                <a href="blog.html" class="block text-cyan-400 py-2">Blog</a>
-                <a href="contact.html" class="block text-slate-300 hover:text-cyan-400 transition-colors py-2">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="floating-animation">
-                <h1 class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-                    Insights & <span class="cyan-text-gradient">Innovation</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                    Stay ahead of the curve with expert insights on AI agents, emerging technologies, and industry best practices.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Article -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="glass-card rounded-3xl p-8 lg:p-12 mb-16">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <div class="inline-flex items-center px-4 py-2 cyan-gradient rounded-full text-white text-sm font-semibold mb-6">
-                            Featured Article
-                        </div>
-                        <h2 class="font-space text-3xl md:text-4xl font-bold mb-6">
-                            The Future of <span class="cyan-text-gradient">Agentic AI</span>
-                        </h2>
-                        <p class="text-slate-300 text-lg mb-6 leading-relaxed">
-                            Discover how autonomous AI agents are reshaping industries, from predictive analytics to real-time decision making. 
-                            Learn what this means for your business in 2025 and beyond.
-                        </p>
-                        <div class="flex items-center space-x-4 mb-6">
-                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
-                                <span class="text-white font-bold">AS</span>
-                            </div>
-                            <div>
-                                <p class="text-white font-semibold">Agentic Solutions Team</p>
-                                <p class="text-slate-400 text-sm">January 15, 2025 • 8 min read</p>
-                            </div>
-                        </div>
-                        <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors text-lg font-semibold group">
-                            Read Full Article <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </a>
-                    </div>
-                    <div class="relative">
-                        <div class="w-full h-80 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center">
-                            <span class="text-6xl">🤖</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blog Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Blog Post 1 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">📊</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Analytics</span>
-                        <span class="text-slate-400 text-sm">Jan 12, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        AI-Powered Business Intelligence Revolution
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        How intelligent agents are transforming data analysis and helping businesses make faster, more informed decisions.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-
-                <!-- Blog Post 2 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">🔒</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Security</span>
-                        <span class="text-slate-400 text-sm">Jan 10, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        Building Trust in Autonomous AI Systems
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        Essential security frameworks and ethical considerations for deploying AI agents in enterprise environments.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-
-                <!-- Blog Post 3 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">⚡</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Performance</span>
-                        <span class="text-slate-400 text-sm">Jan 8, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        Optimizing AI Agent Performance at Scale
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        Best practices for scaling AI agents across large organizations while maintaining speed and accuracy.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-
-                <!-- Blog Post 4 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">🎯</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Strategy</span>
-                        <span class="text-slate-400 text-sm">Jan 5, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        ROI-Driven AI Implementation Strategies
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        How to identify high-impact use cases and measure the success of your AI agent initiatives.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-
-                <!-- Blog Post 5 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">🌐</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Industry</span>
-                        <span class="text-slate-400 text-sm">Jan 3, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        Top 5 Industries Ready for AI Transformation
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        Healthcare, finance, retail, and more - discover which sectors are primed for AI agent adoption.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-
-                <!-- Blog Post 6 -->
-                <article class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300">
-                    <div class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center">
-                        <span class="text-4xl">🚀</span>
-                    </div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold">Innovation</span>
-                        <span class="text-slate-400 text-sm">Jan 1, 2025</span>
-                    </div>
-                    <h3 class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
-                        2025 AI Trends: What to Expect This Year
-                    </h3>
-                    <p class="text-slate-400 mb-4 leading-relaxed">
-                        Our predictions for the most significant AI developments and their potential business impact in 2025.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group">
-                        Read more <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="glass-card rounded-3xl p-12">
-                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
-                    Stay <span class="cyan-text-gradient">Informed</span>
-                </h2>
-                <p class="text-xl text-slate-300 mb-8 leading-relaxed">
-                    Get the latest insights on AI agents, industry trends, and innovation delivered to your inbox.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email" 
-                        class="flex-1 px-6 py-3 bg-slate-800 border border-slate-700 rounded-full text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition-colors"
+    <body class="font-inter bg-slate-900 text-white overflow-x-hidden">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a
+                        href="index.html"
+                        class="font-space text-2xl font-bold cyan-text-gradient"
                     >
-                    <button class="px-8 py-3 cyan-gradient rounded-full text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
-                        Subscribe
+                        Harmen Labs
+                    </a>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-slate-300 hover:text-cyan-400 transition-colors"
+                            >Home</a
+                        >
+                        <a
+                            href="about.html"
+                            class="text-slate-300 hover:text-cyan-400 transition-colors"
+                            >About</a
+                        >
+                        <a
+                            href="services.html"
+                            class="text-slate-300 hover:text-cyan-400 transition-colors"
+                            >Services</a
+                        >
+                        <a
+                            href="case-studies.html"
+                            class="text-slate-300 hover:text-cyan-400 transition-colors"
+                            >Case Studies</a
+                        >
+                        <a href="blog.html" class="text-cyan-400">Blog</a>
+                        <a
+                            href="contact.html"
+                            class="text-slate-300 hover:text-cyan-400 transition-colors"
+                            >Contact</a
+                        >
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white">
+                        <span id="menu-icon">☰</span>
                     </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <a href="index.html" class="font-space text-2xl font-bold cyan-text-gradient">
-                        Harmen Labs
-                    </a>
-                    <p class="mt-4 text-slate-400 max-w-md">
-                        Transforming businesses with intelligent AI agents that drive efficiency, innovation, and growth.
+            <!-- Mobile Navigation -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden glass-card border-t border-white/10"
+            >
+                <div class="px-4 py-4 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block text-slate-300 hover:text-cyan-400 transition-colors py-2"
+                        >Home</a
+                    >
+                    <a
+                        href="about.html"
+                        class="block text-slate-300 hover:text-cyan-400 transition-colors py-2"
+                        >About</a
+                    >
+                    <a
+                        href="services.html"
+                        class="block text-slate-300 hover:text-cyan-400 transition-colors py-2"
+                        >Services</a
+                    >
+                    <a
+                        href="case-studies.html"
+                        class="block text-slate-300 hover:text-cyan-400 transition-colors py-2"
+                        >Case Studies</a
+                    >
+                    <a href="blog.html" class="block text-cyan-400 py-2"
+                        >Blog</a
+                    >
+                    <a
+                        href="contact.html"
+                        class="block text-slate-300 hover:text-cyan-400 transition-colors py-2"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="floating-animation">
+                    <h1
+                        class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+                    >
+                        Insights &
+                        <span class="cyan-text-gradient">Innovation</span>
+                    </h1>
+                    <p
+                        class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+                    >
+                        Stay ahead of the curve with expert insights on AI
+                        agents, emerging technologies, and industry best
+                        practices.
                     </p>
                 </div>
+            </div>
+        </section>
 
-                <div>
-                    <h4 class="font-space font-semibold text-cyan-400 mb-4">Company</h4>
-                    <div class="space-y-2">
-                        <a href="about.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">About Us</a>
-                        <a href="services.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Services</a>
-                        <a href="case-studies.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Case Studies</a>
-                        <a href="blog.html" class="block text-slate-400 hover:text-cyan-300 transition-colors">Blog</a>
+        <!-- Featured Article -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 lg:p-12 mb-16">
+                    <div
+                        class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+                    >
+                        <div>
+                            <div
+                                class="inline-flex items-center px-4 py-2 cyan-gradient rounded-full text-white text-sm font-semibold mb-6"
+                            >
+                                Featured Article
+                            </div>
+                            <h2
+                                class="font-space text-3xl md:text-4xl font-bold mb-6"
+                            >
+                                The Future of
+                                <span class="cyan-text-gradient"
+                                    >Agentic AI</span
+                                >
+                            </h2>
+                            <p
+                                class="text-slate-300 text-lg mb-6 leading-relaxed"
+                            >
+                                Discover how autonomous AI agents are reshaping
+                                industries, from predictive analytics to
+                                real-time decision making. Learn what this means
+                                for your business in 2025 and beyond.
+                            </p>
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center"
+                                >
+                                    <span class="text-white font-bold">AS</span>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold">
+                                        Harmen Labs Team
+                                    </p>
+                                    <p class="text-slate-400 text-sm">
+                                        January 15, 2025 • 8 min read
+                                    </p>
+                                </div>
+                            </div>
+                            <a
+                                href="#"
+                                class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors text-lg font-semibold group"
+                            >
+                                Read Full Article
+                                <span
+                                    class="ml-2 group-hover:translate-x-1 transition-transform"
+                                    >→</span
+                                >
+                            </a>
+                        </div>
+                        <div class="relative">
+                            <div
+                                class="w-full h-80 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center"
+                            >
+                                <span class="text-6xl">🤖</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <h4 class="font-space font-semibold text-cyan-400 mb-4">Connect</h4>
-                    <div class="space-y-2 text-slate-400">
-                        <p>hello@agenticsolutions.ai</p>
-                        <p>(555) 123-4567</p>
-                        <p>San Francisco, CA</p>
+                <!-- Blog Grid -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <!-- Blog Post 1 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">📊</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Analytics</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 12, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            AI-Powered Business Intelligence Revolution
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            How intelligent agents are transforming data
+                            analysis and helping businesses make faster, more
+                            informed decisions.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">🔒</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Security</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 10, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            Building Trust in Autonomous AI Systems
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Essential security frameworks and ethical
+                            considerations for deploying AI agents in enterprise
+                            environments.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">⚡</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Performance</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 8, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            Optimizing AI Agent Performance at Scale
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Best practices for scaling AI agents across large
+                            organizations while maintaining speed and accuracy.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">🎯</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Strategy</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 5, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            ROI-Driven AI Implementation Strategies
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            How to identify high-impact use cases and measure
+                            the success of your AI agent initiatives.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">🌐</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Industry</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 3, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            Top 5 Industries Ready for AI Transformation
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Healthcare, finance, retail, and more - discover
+                            which sectors are primed for AI agent adoption.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+
+                    <!-- Blog Post 6 -->
+                    <article
+                        class="blog-card rounded-2xl p-6 group hover:scale-105 transition-all duration-300"
+                    >
+                        <div
+                            class="w-full h-48 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl mb-6 flex items-center justify-center"
+                        >
+                            <span class="text-4xl">🚀</span>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold"
+                                >Innovation</span
+                            >
+                            <span class="text-slate-400 text-sm"
+                                >Jan 1, 2025</span
+                            >
+                        </div>
+                        <h3
+                            class="font-space text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors"
+                        >
+                            2025 AI Trends: What to Expect This Year
+                        </h3>
+                        <p class="text-slate-400 mb-4 leading-relaxed">
+                            Our predictions for the most significant AI
+                            developments and their potential business impact in
+                            2025.
+                        </p>
+                        <a
+                            href="#"
+                            class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors group"
+                        >
+                            Read more
+                            <span
+                                class="ml-2 group-hover:translate-x-1 transition-transform"
+                                >→</span
+                            >
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="glass-card rounded-3xl p-12">
+                    <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
+                        Stay <span class="cyan-text-gradient">Informed</span>
+                    </h2>
+                    <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+                        Get the latest insights on AI agents, industry trends,
+                        and innovation delivered to your inbox.
+                    </p>
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+                    >
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            class="flex-1 px-6 py-3 bg-slate-800 border border-slate-700 rounded-full text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                        />
+                        <button
+                            class="px-8 py-3 cyan-gradient rounded-full text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                        >
+                            Subscribe
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="md:col-span-2">
+                        <a
+                            href="index.html"
+                            class="font-space text-2xl font-bold cyan-text-gradient"
+                        >
+                            Harmen Labs
+                        </a>
+                        <p class="mt-4 text-slate-400 max-w-md">
+                            Transforming businesses with intelligent AI agents
+                            that drive efficiency, innovation, and growth.
+                        </p>
+                    </div>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
-        });
+                    <div>
+                        <h4 class="font-space font-semibold text-cyan-400 mb-4">
+                            Company
+                        </h4>
+                        <div class="space-y-2">
+                            <a
+                                href="about.html"
+                                class="block text-slate-400 hover:text-cyan-300 transition-colors"
+                                >About Us</a
+                            >
+                            <a
+                                href="services.html"
+                                class="block text-slate-400 hover:text-cyan-300 transition-colors"
+                                >Services</a
+                            >
+                            <a
+                                href="case-studies.html"
+                                class="block text-slate-400 hover:text-cyan-300 transition-colors"
+                                >Case Studies</a
+                            >
+                            <a
+                                href="blog.html"
+                                class="block text-slate-400 hover:text-cyan-300 transition-colors"
+                                >Blog</a
+                            >
+                        </div>
+                    </div>
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.textContent = '☰';
-            }
-        });
-    </script>
-</body>
+                    <div>
+                        <h4 class="font-space font-semibold text-cyan-400 mb-4">
+                            Connect
+                        </h4>
+                        <div class="space-y-2 text-slate-400">
+                            <p>harmenlabs@gmail.com</p>
+                            <p>+971 503-776-572</p>
+                            <p>Dubai, AE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
+        <script>
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const menuIcon = document.getElementById("menu-icon");
+
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuIcon.textContent = mobileMenu.classList.contains("hidden")
+                    ? "☰"
+                    : "✕";
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (
+                    !mobileMenuBtn.contains(e.target) &&
+                    !mobileMenu.contains(e.target)
+                ) {
+                    mobileMenu.classList.add("hidden");
+                    menuIcon.textContent = "☰";
+                }
+            });
+        </script>
+    </body>
 </html>

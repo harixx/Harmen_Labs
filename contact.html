@@ -1,479 +1,737 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Us - Harmen Labs</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .font-space {
+                font-family: "Space Grotesk", sans-serif;
+            }
+            .font-inter {
+                font-family: "Inter", sans-serif;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Harmen Labs</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        .font-space { font-family: 'Space Grotesk', sans-serif; }
-        .font-inter { font-family: 'Inter', sans-serif; }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
+            .amber-gradient {
+                background: linear-gradient(
+                    135deg,
+                    #f59e0b 0%,
+                    #eab308 50%,
+                    #ca8a04 100%
+                );
+            }
 
-        .amber-gradient {
-            background: linear-gradient(135deg, #F59E0B 0%, #EAB308 50%, #CA8A04 100%);
-        }
+            .amber-text-gradient {
+                background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
 
-        .amber-text-gradient {
-            background: linear-gradient(135deg, #F59E0B 0%, #EAB308 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+            .floating-animation {
+                animation: float 6s ease-in-out infinite;
+            }
 
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
+            .hero-bg {
+                background: radial-gradient(
+                        circle at 20% 50%,
+                        rgba(245, 158, 11, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 80% 20%,
+                        rgba(234, 179, 8, 0.3) 0%,
+                        transparent 50%
+                    ),
+                    radial-gradient(
+                        circle at 40% 80%,
+                        rgba(202, 138, 4, 0.2) 0%,
+                        transparent 50%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #0f0f23 0%,
+                        #1a1a2e 50%,
+                        #16213e 100%
+                    );
+            }
 
-        .hero-bg {
-            background: radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(234, 179, 8, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(202, 138, 4, 0.2) 0%, transparent 50%),
-                        linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%);
-        }
+            .form-input {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(245, 158, 11, 0.2);
+                color: white;
+                transition: all 0.3s ease;
+            }
 
-        .form-input {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            color: white;
-            transition: all 0.3s ease;
-        }
+            .form-input:focus {
+                outline: none;
+                border-color: #f59e0b;
+                box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+            }
 
-        .form-input:focus {
-            outline: none;
-            border-color: #F59E0B;
-            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
-        }
+            .form-input::placeholder {
+                color: #94a3b8;
+            }
+        </style>
+    </head>
 
-        .form-input::placeholder {
-            color: #94A3B8;
-        }
-    </style>
-</head>
+    <body class="font-inter bg-slate-900 text-white overflow-x-hidden">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 glass-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a
+                        href="index.html"
+                        class="font-space text-2xl font-bold amber-text-gradient"
+                    >
+                        Harmen Labs
+                    </a>
 
-<body class="font-inter bg-slate-900 text-white overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-card">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="index.html" class="font-space text-2xl font-bold amber-text-gradient">
-                    Agentic Solutions
-                </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-slate-300 hover:text-amber-400 transition-colors">Home</a>
-                    <a href="about.html" class="text-slate-300 hover:text-amber-400 transition-colors">About</a>
-                    <a href="services.html" class="text-slate-300 hover:text-amber-400 transition-colors">Services</a>
-                    <a href="case-studies.html" class="text-slate-300 hover:text-amber-400 transition-colors">Case Studies</a>
-                    <a href="blog.html" class="text-slate-300 hover:text-amber-400 transition-colors">Blog</a>
-                    <a href="contact.html" class="text-amber-400">Contact</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white">
-                    <span id="menu-icon">☰</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10">
-            <div class="px-4 py-4 space-y-2">
-                <a href="index.html" class="block text-slate-300 hover:text-amber-400 transition-colors py-2">Home</a>
-                <a href="about.html" class="block text-slate-300 hover:text-amber-400 transition-colors py-2">About</a>
-                <a href="services.html" class="block text-slate-300 hover:text-amber-400 transition-colors py-2">Services</a>
-                <a href="case-studies.html" class="block text-slate-300 hover:text-amber-400 transition-colors py-2">Case Studies</a>
-                <a href="blog.html" class="block text-slate-300 hover:text-amber-400 transition-colors py-2">Blog</a>
-                <a href="contact.html" class="block text-amber-400 py-2">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="floating-animation">
-                <h1 class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-                    Let's <span class="amber-text-gradient">Connect</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                    Ready to transform your business with intelligent AI agents? We're here to help you get started.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="glass-card rounded-3xl p-8">
-                    <h2 class="font-space text-3xl font-bold mb-6">
-                        Start Your <span class="amber-text-gradient">AI Journey</span>
-                    </h2>
-                    <p class="text-slate-300 mb-8 leading-relaxed">
-                        Tell us about your challenges and goals. Our AI experts will design a custom solution that transforms your operations.
-                    </p>
-
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="firstName" class="block text-sm font-semibold text-white mb-2">First Name</label>
-                                <input 
-                                    type="text" 
-                                    id="firstName" 
-                                    class="form-input w-full px-4 py-3 rounded-xl"
-                                    placeholder="John"
-                                    required
-                                >
-                            </div>
-                            <div>
-                                <label for="lastName" class="block text-sm font-semibold text-white mb-2">Last Name</label>
-                                <input 
-                                    type="text" 
-                                    id="lastName" 
-                                    class="form-input w-full px-4 py-3 rounded-xl"
-                                    placeholder="Doe"
-                                    required
-                                >
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-white mb-2">Business Email</label>
-                            <input 
-                                type="email" 
-                                id="email" 
-                                class="form-input w-full px-4 py-3 rounded-xl"
-                                placeholder="john@company.com"
-                                required
-                            >
-                        </div>
-
-                        <div>
-                            <label for="company" class="block text-sm font-semibold text-white mb-2">Company</label>
-                            <input 
-                                type="text" 
-                                id="company" 
-                                class="form-input w-full px-4 py-3 rounded-xl"
-                                placeholder="Your Company"
-                                required
-                            >
-                        </div>
-
-                        <div>
-                            <label for="phone" class="block text-sm font-semibold text-white mb-2">Phone (Optional)</label>
-                            <input 
-                                type="tel" 
-                                id="phone" 
-                                class="form-input w-full px-4 py-3 rounded-xl"
-                                placeholder="+1 (555) 123-4567"
-                            >
-                        </div>
-
-                        <div>
-                            <label for="projectType" class="block text-sm font-semibold text-white mb-2">Project Type</label>
-                            <select id="projectType" class="form-input w-full px-4 py-3 rounded-xl">
-                                <option value="">Select a project type</option>
-                                <option value="customer-service">Customer Service Automation</option>
-                                <option value="data-analysis">Data Analysis & Insights</option>
-                                <option value="workflow-automation">Workflow Automation</option>
-                                <option value="custom-solution">Custom AI Solution</option>
-                                <option value="consultation">Consultation Only</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="message" class="block text-sm font-semibold text-white mb-2">Project Details</label>
-                            <textarea 
-                                id="message" 
-                                rows="6" 
-                                class="form-input w-full px-4 py-3 rounded-xl resize-none"
-                                placeholder="Tell us about your current challenges, goals, and how AI agents could help your business..."
-                                required
-                            ></textarea>
-                        </div>
-
-                        <button 
-                            type="submit" 
-                            class="w-full py-4 amber-gradient rounded-xl text-white font-semibold text-lg hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300"
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a
+                            href="index.html"
+                            class="text-slate-300 hover:text-amber-400 transition-colors"
+                            >Home</a
                         >
-                            Send Message
-                        </button>
-                    </form>
+                        <a
+                            href="about.html"
+                            class="text-slate-300 hover:text-amber-400 transition-colors"
+                            >About</a
+                        >
+                        <a
+                            href="services.html"
+                            class="text-slate-300 hover:text-amber-400 transition-colors"
+                            >Services</a
+                        >
+                        <a
+                            href="case-studies.html"
+                            class="text-slate-300 hover:text-amber-400 transition-colors"
+                            >Case Studies</a
+                        >
+                        <a
+                            href="blog.html"
+                            class="text-slate-300 hover:text-amber-400 transition-colors"
+                            >Blog</a
+                        >
+                        <a href="contact.html" class="text-amber-400"
+                            >Contact</a
+                        >
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white">
+                        <span id="menu-icon">☰</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Contact Information -->
-                <div class="space-y-8">
-                    <!-- Direct Contact -->
+            <!-- Mobile Navigation -->
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden glass-card border-t border-white/10"
+            >
+                <div class="px-4 py-4 space-y-2">
+                    <a
+                        href="index.html"
+                        class="block text-slate-300 hover:text-amber-400 transition-colors py-2"
+                        >Home</a
+                    >
+                    <a
+                        href="about.html"
+                        class="block text-slate-300 hover:text-amber-400 transition-colors py-2"
+                        >About</a
+                    >
+                    <a
+                        href="services.html"
+                        class="block text-slate-300 hover:text-amber-400 transition-colors py-2"
+                        >Services</a
+                    >
+                    <a
+                        href="case-studies.html"
+                        class="block text-slate-300 hover:text-amber-400 transition-colors py-2"
+                        >Case Studies</a
+                    >
+                    <a
+                        href="blog.html"
+                        class="block text-slate-300 hover:text-amber-400 transition-colors py-2"
+                        >Blog</a
+                    >
+                    <a href="contact.html" class="block text-amber-400 py-2"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-bg pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto text-center">
+                <div class="floating-animation">
+                    <h1
+                        class="font-space text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+                    >
+                        Let's <span class="amber-text-gradient">Connect</span>
+                    </h1>
+                    <p
+                        class="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed"
+                    >
+                        Ready to transform your business with intelligent AI
+                        agents? We're here to help you get started.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
                     <div class="glass-card rounded-3xl p-8">
-                        <h3 class="font-space text-2xl font-bold mb-6">
-                            <span class="amber-text-gradient">Direct Contact</span>
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center">
-                                    <span class="text-white text-xl">📧</span>
+                        <h2 class="font-space text-3xl font-bold mb-6">
+                            Start Your
+                            <span class="amber-text-gradient">AI Journey</span>
+                        </h2>
+                        <p class="text-slate-300 mb-8 leading-relaxed">
+                            Tell us about your challenges and goals. Our AI
+                            experts will design a custom solution that
+                            transforms your operations.
+                        </p>
+
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label
+                                        for="firstName"
+                                        class="block text-sm font-semibold text-white mb-2"
+                                        >First Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        class="form-input w-full px-4 py-3 rounded-xl"
+                                        placeholder="John"
+                                        required
+                                    />
                                 </div>
                                 <div>
-                                    <p class="text-white font-semibold">Email</p>
-                                    <p class="text-slate-300">hello@agenticsolutions.ai</p>
+                                    <label
+                                        for="lastName"
+                                        class="block text-sm font-semibold text-white mb-2"
+                                        >Last Name</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        class="form-input w-full px-4 py-3 rounded-xl"
+                                        placeholder="Doe"
+                                        required
+                                    />
                                 </div>
                             </div>
 
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center">
-                                    <span class="text-white text-xl">📞</span>
-                                </div>
-                                <div>
-                                    <p class="text-white font-semibold">Phone</p>
-                                    <p class="text-slate-300">+1 (555) 123-4567</p>
-                                </div>
+                            <div>
+                                <label
+                                    for="email"
+                                    class="block text-sm font-semibold text-white mb-2"
+                                    >Business Email</label
+                                >
+                                <input
+                                    type="email"
+                                    id="email"
+                                    class="form-input w-full px-4 py-3 rounded-xl"
+                                    placeholder="john@company.com"
+                                    required
+                                />
                             </div>
 
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center">
-                                    <span class="text-white text-xl">📍</span>
+                            <div>
+                                <label
+                                    for="company"
+                                    class="block text-sm font-semibold text-white mb-2"
+                                    >Company</label
+                                >
+                                <input
+                                    type="text"
+                                    id="company"
+                                    class="form-input w-full px-4 py-3 rounded-xl"
+                                    placeholder="Your Company"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label
+                                    for="phone"
+                                    class="block text-sm font-semibold text-white mb-2"
+                                    >Phone (Optional)</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    class="form-input w-full px-4 py-3 rounded-xl"
+                                    placeholder="+1 (555) 123-4567"
+                                />
+                            </div>
+
+                            <div>
+                                <label
+                                    for="projectType"
+                                    class="block text-sm font-semibold text-white mb-2"
+                                    >Project Type</label
+                                >
+                                <select
+                                    id="projectType"
+                                    class="form-input w-full px-4 py-3 rounded-xl"
+                                >
+                                    <option value="">
+                                        Select a project type
+                                    </option>
+                                    <option value="customer-service">
+                                        Customer Service Automation
+                                    </option>
+                                    <option value="data-analysis">
+                                        Data Analysis & Insights
+                                    </option>
+                                    <option value="workflow-automation">
+                                        Workflow Automation
+                                    </option>
+                                    <option value="custom-solution">
+                                        Custom AI Solution
+                                    </option>
+                                    <option value="consultation">
+                                        Consultation Only
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    for="message"
+                                    class="block text-sm font-semibold text-white mb-2"
+                                    >Project Details</label
+                                >
+                                <textarea
+                                    id="message"
+                                    rows="6"
+                                    class="form-input w-full px-4 py-3 rounded-xl resize-none"
+                                    placeholder="Tell us about your current challenges, goals, and how AI agents could help your business..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="w-full py-4 amber-gradient rounded-xl text-white font-semibold text-lg hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-300"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <!-- Direct Contact -->
+                        <div class="glass-card rounded-3xl p-8">
+                            <h3 class="font-space text-2xl font-bold mb-6">
+                                <span class="amber-text-gradient"
+                                    >Direct Contact</span
+                                >
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center"
+                                    >
+                                        <span class="text-white text-xl"
+                                            >📧</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold">
+                                            Email
+                                        </p>
+                                        <p class="text-slate-300">
+                                            harmenlabs@gmail.com
+                                        </p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="text-white font-semibold">Location</p>
-                                    <p class="text-slate-300">San Francisco, CA</p>
+
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center"
+                                    >
+                                        <span class="text-white text-xl"
+                                            >📞</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold">
+                                            Phone
+                                        </p>
+                                        <p class="text-slate-300">
+                                            +971 503-776-572
+                                        </p>
+                                    </div>
                                 </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-12 h-12 amber-gradient rounded-xl flex items-center justify-center"
+                                    >
+                                        <span class="text-white text-xl"
+                                            >📍</span
+                                        >
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold">
+                                            Location
+                                        </p>
+                                        <p class="text-slate-300">Dubai, AE</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Office Hours -->
+                        <div class="glass-card rounded-3xl p-8">
+                            <h3 class="font-space text-2xl font-bold mb-6">
+                                <span class="amber-text-gradient"
+                                    >Office Hours</span
+                                >
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-300"
+                                        >Monday - Friday</span
+                                    >
+                                    <span class="text-white"
+                                        >9:00 AM - 6:00 PM PST</span
+                                    >
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-300">Saturday</span>
+                                    <span class="text-white"
+                                        >10:00 AM - 2:00 PM PST</span
+                                    >
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-300">Sunday</span>
+                                    <span class="text-white">Closed</span>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 text-sm mt-4">
+                                Emergency support available 24/7 for enterprise
+                                clients
+                            </p>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="glass-card rounded-3xl p-8">
+                            <h3 class="font-space text-2xl font-bold mb-6">
+                                <span class="amber-text-gradient"
+                                    >Quick Links</span
+                                >
+                            </h3>
+                            <div class="space-y-3">
+                                <a
+                                    href="services.html"
+                                    class="block text-slate-300 hover:text-amber-400 transition-colors"
+                                >
+                                    → View Our Services
+                                </a>
+                                <a
+                                    href="case-studies.html"
+                                    class="block text-slate-300 hover:text-amber-400 transition-colors"
+                                >
+                                    → See Success Stories
+                                </a>
+                                <a
+                                    href="blog.html"
+                                    class="block text-slate-300 hover:text-amber-400 transition-colors"
+                                >
+                                    → Read Our Blog
+                                </a>
+                                <a
+                                    href="about.html"
+                                    class="block text-slate-300 hover:text-amber-400 transition-colors"
+                                >
+                                    → About Our Team
+                                </a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Office Hours -->
-                    <div class="glass-card rounded-3xl p-8">
-                        <h3 class="font-space text-2xl font-bold mb-6">
-                            <span class="amber-text-gradient">Office Hours</span>
+        <!-- FAQ Section -->
+        <section class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
+                        Frequently Asked
+                        <span class="amber-text-gradient">Questions</span>
+                    </h2>
+                    <p class="text-xl text-slate-300">
+                        Quick answers to common questions about our AI agent
+                        development process.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-space text-xl font-bold mb-3">
+                            How long does it take to develop a custom AI agent?
                         </h3>
-                        <div class="space-y-3">
-                            <div class="flex justify-between">
-                                <span class="text-slate-300">Monday - Friday</span>
-                                <span class="text-white">9:00 AM - 6:00 PM PST</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-300">Saturday</span>
-                                <span class="text-white">10:00 AM - 2:00 PM PST</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-300">Sunday</span>
-                                <span class="text-white">Closed</span>
-                            </div>
-                        </div>
-                        <p class="text-slate-400 text-sm mt-4">
-                            Emergency support available 24/7 for enterprise clients
+                        <p class="text-slate-300">
+                            Development time varies based on complexity, but
+                            most projects take 4-12 weeks from initial
+                            consultation to deployment.
                         </p>
                     </div>
 
-                    <!-- Quick Links -->
-                    <div class="glass-card rounded-3xl p-8">
-                        <h3 class="font-space text-2xl font-bold mb-6">
-                            <span class="amber-text-gradient">Quick Links</span>
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-space text-xl font-bold mb-3">
+                            Do you provide ongoing support after deployment?
                         </h3>
-                        <div class="space-y-3">
-                            <a href="services.html" class="block text-slate-300 hover:text-amber-400 transition-colors">
-                                → View Our Services
-                            </a>
-                            <a href="case-studies.html" class="block text-slate-300 hover:text-amber-400 transition-colors">
-                                → See Success Stories
-                            </a>
-                            <a href="blog.html" class="block text-slate-300 hover:text-amber-400 transition-colors">
-                                → Read Our Blog
-                            </a>
-                            <a href="about.html" class="block text-slate-300 hover:text-amber-400 transition-colors">
-                                → About Our Team
-                            </a>
+                        <p class="text-slate-300">
+                            Yes, we offer comprehensive support packages
+                            including monitoring, updates, and optimization to
+                            ensure your AI agents continue performing at their
+                            best.
+                        </p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-space text-xl font-bold mb-3">
+                            Can AI agents integrate with our existing systems?
+                        </h3>
+                        <p class="text-slate-300">
+                            Absolutely. Our AI agents are designed to seamlessly
+                            integrate with your current tech stack, including
+                            CRMs, databases, and business applications.
+                        </p>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6">
+                        <h3 class="font-space text-xl font-bold mb-3">
+                            What's the investment range for AI agent
+                            development?
+                        </h3>
+                        <p class="text-slate-300">
+                            Investment varies based on scope and complexity. We
+                            offer solutions starting from $50K for basic
+                            automation up to $500K+ for enterprise-wide
+                            transformations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="md:col-span-2">
+                        <a
+                            href="index.html"
+                            class="font-space text-2xl font-bold amber-text-gradient"
+                        >
+                            Harmen Labs
+                        </a>
+                        <p class="mt-4 text-slate-400 max-w-md">
+                            Transforming businesses with intelligent AI agents
+                            that drive efficiency, innovation, and growth.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="font-space font-semibold text-amber-400 mb-4"
+                        >
+                            Company
+                        </h4>
+                        <div class="space-y-2">
+                            <a
+                                href="about.html"
+                                class="block text-slate-400 hover:text-amber-300 transition-colors"
+                                >About Us</a
+                            >
+                            <a
+                                href="services.html"
+                                class="block text-slate-400 hover:text-amber-300 transition-colors"
+                                >Services</a
+                            >
+                            <a
+                                href="case-studies.html"
+                                class="block text-slate-400 hover:text-amber-300 transition-colors"
+                                >Case Studies</a
+                            >
+                            <a
+                                href="blog.html"
+                                class="block text-slate-400 hover:text-amber-300 transition-colors"
+                                >Blog</a
+                            >
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="font-space font-semibold text-amber-400 mb-4"
+                        >
+                            Connect
+                        </h4>
+                        <div class="space-y-2 text-slate-400">
+                            <p>harmenlabs@gmail.com</p>
+                            <p>+971 503-776-572</p>
+                            <p>Dubai, AE</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- FAQ Section -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="font-space text-3xl md:text-5xl font-bold mb-6">
-                    Frequently Asked <span class="amber-text-gradient">Questions</span>
-                </h2>
-                <p class="text-xl text-slate-300">
-                    Quick answers to common questions about our AI agent development process.
-                </p>
-            </div>
+        <script>
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            const menuIcon = document.getElementById("menu-icon");
 
-            <div class="space-y-6">
-                <div class="glass-card rounded-2xl p-6">
-                    <h3 class="font-space text-xl font-bold mb-3">How long does it take to develop a custom AI agent?</h3>
-                    <p class="text-slate-300">
-                        Development time varies based on complexity, but most projects take 4-12 weeks from initial consultation to deployment.
-                    </p>
-                </div>
+            mobileMenuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                menuIcon.textContent = mobileMenu.classList.contains("hidden")
+                    ? "☰"
+                    : "✕";
+            });
 
-                <div class="glass-card rounded-2xl p-6">
-                    <h3 class="font-space text-xl font-bold mb-3">Do you provide ongoing support after deployment?</h3>
-                    <p class="text-slate-300">
-                        Yes, we offer comprehensive support packages including monitoring, updates, and optimization to ensure your AI agents continue performing at their best.
-                    </p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <h3 class="font-space text-xl font-bold mb-3">Can AI agents integrate with our existing systems?</h3>
-                    <p class="text-slate-300">
-                        Absolutely. Our AI agents are designed to seamlessly integrate with your current tech stack, including CRMs, databases, and business applications.
-                    </p>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6">
-                    <h3 class="font-space text-xl font-bold mb-3">What's the investment range for AI agent development?</h3>
-                    <p class="text-slate-300">
-                        Investment varies based on scope and complexity. We offer solutions starting from $50K for basic automation up to $500K+ for enterprise-wide transformations.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="md:col-span-2">
-                    <a href="index.html" class="font-space text-2xl font-bold amber-text-gradient">
-                        Harmen Labs
-                    </a>
-                    <p class="mt-4 text-slate-400 max-w-md">
-                        Transforming businesses with intelligent AI agents that drive efficiency, innovation, and growth.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-space font-semibold text-amber-400 mb-4">Company</h4>
-                    <div class="space-y-2">
-                        <a href="about.html" class="block text-slate-400 hover:text-amber-300 transition-colors">About Us</a>
-                        <a href="services.html" class="block text-slate-400 hover:text-amber-300 transition-colors">Services</a>
-                        <a href="case-studies.html" class="block text-slate-400 hover:text-amber-300 transition-colors">Case Studies</a>
-                        <a href="blog.html" class="block text-slate-400 hover:text-amber-300 transition-colors">Blog</a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-space font-semibold text-amber-400 mb-4">Connect</h4>
-                    <div class="space-y-2 text-slate-400">
-                        <p>hello@agenticsolutions.ai</p>
-                        <p>(555) 123-4567</p>
-                        <p>San Francisco, CA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-                menuIcon.textContent = '☰';
-            }
-        });
-
-        // Contact form switching functionality
-        function showContactForm(formType) {
-            // Hide all forms
-            document.getElementById('general-form').classList.add('hidden');
-            document.getElementById('consultation-form').classList.add('hidden');
-            document.getElementById('project-form').classList.add('hidden');
-            
-            // Remove active class from all buttons
-            document.getElementById('general-btn').classList.remove('active');
-            document.getElementById('consultation-btn').classList.remove('active');
-            document.getElementById('project-btn').classList.remove('active');
-            
-            // Show selected form and activate button
-            document.getElementById(formType + '-form').classList.remove('hidden');
-            document.getElementById(formType + '-btn').classList.add('active');
-        }
-
-        // Form submission handlers
-        async function submitForm(formElement, formType) {
-            const formData = new FormData(formElement);
-            const data = Object.fromEntries(formData.entries());
-            data.form_type = formType;
-            
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    let message = 'Thank you for your inquiry! We\'ll get back to you within 24 hours.';
-                    if (formType === 'consultation') {
-                        message = 'Thank you! We\'ll contact you within 24 hours to schedule your strategy consultation.';
-                    } else if (formType === 'project') {
-                        message = 'Thank you! Your project request has been submitted. Our team will review and contact you within 48 hours.';
-                    }
-                    alert(message);
-                    formElement.reset();
-                } else {
-                    alert(result.message || 'An error occurred. Please try again.');
+            // Close mobile menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (
+                    !mobileMenuBtn.contains(e.target) &&
+                    !mobileMenu.contains(e.target)
+                ) {
+                    mobileMenu.classList.add("hidden");
+                    menuIcon.textContent = "☰";
                 }
-            } catch (error) {
-                alert('An error occurred. Please try again.');
+            });
+
+            // Contact form switching functionality
+            function showContactForm(formType) {
+                // Hide all forms
+                document.getElementById("general-form").classList.add("hidden");
+                document
+                    .getElementById("consultation-form")
+                    .classList.add("hidden");
+                document.getElementById("project-form").classList.add("hidden");
+
+                // Remove active class from all buttons
+                document
+                    .getElementById("general-btn")
+                    .classList.remove("active");
+                document
+                    .getElementById("consultation-btn")
+                    .classList.remove("active");
+                document
+                    .getElementById("project-btn")
+                    .classList.remove("active");
+
+                // Show selected form and activate button
+                document
+                    .getElementById(formType + "-form")
+                    .classList.remove("hidden");
+                document
+                    .getElementById(formType + "-btn")
+                    .classList.add("active");
             }
-        }
 
-        document.getElementById('general-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this, 'general');
-        });
+            // Form submission handlers
+            async function submitForm(formElement, formType) {
+                const formData = new FormData(formElement);
+                const data = Object.fromEntries(formData.entries());
+                data.form_type = formType;
 
-        document.getElementById('consultation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this, 'consultation');
-        });
+                try {
+                    const response = await fetch("/api/contact", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
 
-        document.getElementById('project-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            submitForm(this, 'project');
-        });
-    </script>
-</body>
+                    const result = await response.json();
 
+                    if (result.success) {
+                        let message =
+                            "Thank you for your inquiry! We'll get back to you within 24 hours.";
+                        if (formType === "consultation") {
+                            message =
+                                "Thank you! We'll contact you within 24 hours to schedule your strategy consultation.";
+                        } else if (formType === "project") {
+                            message =
+                                "Thank you! Your project request has been submitted. Our team will review and contact you within 48 hours.";
+                        }
+                        alert(message);
+                        formElement.reset();
+                    } else {
+                        alert(
+                            result.message ||
+                                "An error occurred. Please try again.",
+                        );
+                    }
+                } catch (error) {
+                    alert("An error occurred. Please try again.");
+                }
+            }
+
+            document
+                .getElementById("general-form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    submitForm(this, "general");
+                });
+
+            document
+                .getElementById("consultation-form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    submitForm(this, "consultation");
+                });
+
+            document
+                .getElementById("project-form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    submitForm(this, "project");
+                });
+        </script>
+    </body>
 </html>

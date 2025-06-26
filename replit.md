@@ -133,6 +133,13 @@ This is a static website for Harmen Labs, an AI agents enterprise company. The p
   - Featured 17 major tech companies: Atlassian, DigitalOcean, Shopify, Vercel, Cloudflare, Postman, MongoDB, Stripe, Twilio, Slack, Snowflake, Datadog, HashiCorp, Supabase, OpenAI, Anthropic, Retool
   - Live activity feed showing real-time project acquisitions with company-specific messaging
   - Fixed JavaScript errors and enhanced user interaction functionality
+- June 26, 2025: Updated leadership team section in about.html:
+  - Replaced generic team members with actual founders Haris and Aimen
+  - Added comprehensive professional descriptions for both founders
+  - Haris: AI-Driven Cloud-Native Software Architect, AI/ML & MLOps Specialist, AWS Certified
+  - Aimen: Business Data Analyst, Solution Architect, Certified Google & IBM Data Analyst Expert
+  - Updated grid layout to 2-column design highlighting the two co-founders
+  - Enhanced visual design with custom gradient avatars for each founder
 
 ## User Preferences
 
