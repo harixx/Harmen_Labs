@@ -212,6 +212,21 @@
                 color: white;
             }
 
+            .team-photo {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+
+            .team-photo img {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .team-photo img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+            }
+
             .mobile-menu {
                 background: rgba(30, 27, 75, 0.95);
                 backdrop-filter: blur(20px);
@@ -637,7 +652,9 @@
                     class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
                 >
                     <div class="team-card">
-                        <div class="team-avatar" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">H</div>
+                        <div class="team-photo">
+                            <img src="haris.png" alt="Haris - Founder & CEO" class="w-24 h-24 rounded-full object-cover border-4 border-orange-500/30 shadow-lg">
+                        </div>
                         <h3
                             class="font-space text-2xl font-semibold text-purple-300 mb-2"
                         >
