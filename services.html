@@ -92,6 +92,34 @@
                 }
             }
 
+            @media (max-width: 768px) {
+                .floating-blob {
+                    width: 200px !important;
+                    height: 200px !important;
+                }
+                
+                .service-card {
+                    padding: 20px;
+                }
+                
+                .service-icon {
+                    width: 60px;
+                    height: 60px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .floating-blob {
+                    width: 150px !important;
+                    height: 150px !important;
+                }
+                
+                .service-card {
+                    padding: 16px;
+                }
+            }
+
             .blob-1 {
                 width: 300px;
                 height: 300px;
@@ -246,50 +274,66 @@
 
         <!-- Navigation -->
         <header class="nav-glass fixed w-full top-0 z-50">
-            <nav class="container mx-auto px-6 py-4">
+            <nav class="container mx-auto px-4 sm:px-6 py-4">
                 <div class="flex justify-between items-center">
                     <a
                         href="index.html"
-                        class="text-2xl font-space font-bold gradient-text"
+                        class="text-lg sm:text-xl lg:text-2xl font-space font-bold gradient-text"
                     >
                         Harmen Labs
                     </a>
 
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+
                     <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-8">
+                    <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
                         <a
                             href="index.html"
-                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium"
+                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium text-sm lg:text-base"
                             >Home</a
                         >
                         <a
                             href="about.html"
-                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium"
+                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium text-sm lg:text-base"
                             >About</a
                         >
                         <a
                             href="services.html"
-                            class="text-cyan-300 hover:text-cyan-100 transition-colors font-medium"
+                            class="text-cyan-300 hover:text-cyan-100 transition-colors font-medium text-sm lg:text-base"
                             >Services</a
                         >
                         <a
                             href="case-studies.html"
-                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium"
+                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium text-sm lg:text-base"
                             >Case Studies</a
                         >
                         <a
                             href="blog.html"
-                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium"
+                            class="text-slate-300 hover:text-cyan-300 transition-colors font-medium text-sm lg:text-base"
                             >Blog</a
                         >
-                        <a href="contact.html" class="btn-primary"
+                        <a href="contact.html" class="btn-primary text-sm lg:text-base px-4 lg:px-6"
                             >Get Started</a
                         >
                     </div>
-
-                    <!-- Mobile Menu Button -->
-                    <button
-                        id="mobile-menu-btn"
+                </div>
+                
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="index.html" class="text-slate-300 hover:text-cyan-300 transition-colors">Home</a>
+                        <a href="about.html" class="text-slate-300 hover:text-cyan-300 transition-colors">About</a>
+                        <a href="services.html" class="text-cyan-300 hover:text-cyan-100 transition-colors">Services</a>
+                        <a href="case-studies.html" class="text-slate-300 hover:text-cyan-300 transition-colors">Case Studies</a>
+                        <a href="blog.html" class="text-slate-300 hover:text-cyan-300 transition-colors">Blog</a>
+                        <a href="contact.html" class="btn-primary w-full text-center mt-4">Get Started</a>
+                    </div>
+                </div>
                         class="md:hidden text-cyan-300 text-2xl"
                     >
                         <span id="menu-icon">☰</span>
@@ -1006,13 +1050,21 @@
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById("mobile-menu-btn");
             const mobileMenu = document.getElementById("mobile-menu");
-            const menuIcon = document.getElementById("menu-icon");
 
             mobileMenuBtn.addEventListener("click", () => {
                 mobileMenu.classList.toggle("hidden");
-                menuIcon.textContent = mobileMenu.classList.contains("hidden")
-                    ? "☰"
-                    : "✕";
+                
+                // Toggle icon between hamburger and close
+                const svg = mobileMenuBtn.querySelector('svg');
+                const path = svg.querySelector('path');
+                
+                if (mobileMenu.classList.contains("hidden")) {
+                    // Show hamburger menu
+                    path.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                } else {
+                    // Show close icon
+                    path.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                }
             });
         </script>
     </body>

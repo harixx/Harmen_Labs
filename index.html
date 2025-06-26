@@ -191,10 +191,41 @@
 
             @media (max-width: 768px) {
                 .sticky-cta {
-                    position: static;
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    left: 20px;
                     transform: none;
-                    margin: 20px auto;
+                    margin: 0;
                     display: block;
+                }
+                
+                .hero-text {
+                    font-size: 2.5rem;
+                    line-height: 1.1;
+                }
+                
+                .logos-slide {
+                    animation-duration: 20s;
+                }
+                
+                .glass {
+                    margin: 0 10px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .hero-text {
+                    font-size: 2rem;
+                }
+                
+                .countdown-timer {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .countdown-item {
+                    min-width: auto;
                 }
             }
         </style>
@@ -203,35 +234,59 @@
     <body>
         <!-- Fixed Navigation -->
         <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-            <div class="container mx-auto px-6 py-4">
+            <div class="container mx-auto px-4 sm:px-6 py-4">
                 <div class="flex items-center justify-between">
-                    <div class="text-xl font-space font-bold gradient-text">
+                    <div class="text-lg sm:text-xl font-space font-bold gradient-text">
                         Harmen Labs
                     </div>
-                    <div class="hidden md:flex items-center space-x-8">
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="hidden md:flex items-center space-x-4 lg:space-x-8">
                         <a
                             href="about.html"
-                            class="text-slate-300 hover:text-conversion-orange transition-colors"
+                            class="text-slate-300 hover:text-conversion-orange transition-colors text-sm lg:text-base"
                             >About</a
                         >
                         <a
                             href="services.html"
-                            class="text-slate-300 hover:text-conversion-orange transition-colors"
+                            class="text-slate-300 hover:text-conversion-orange transition-colors text-sm lg:text-base"
                             >Services</a
                         >
                         <a
                             href="case-studies.html"
-                            class="text-slate-300 hover:text-conversion-orange transition-colors"
+                            class="text-slate-300 hover:text-conversion-orange transition-colors text-sm lg:text-base"
                             >Case Studies</a
                         >
                         <a
                             href="contact.html"
-                            class="text-slate-300 hover:text-conversion-orange transition-colors"
+                            class="text-slate-300 hover:text-conversion-orange transition-colors text-sm lg:text-base"
                             >Contact</a
                         >
                         <button
                             onclick="openContactModal()"
-                            class="cta-button text-white px-6 py-2 rounded-lg font-semibold"
+                            class="cta-button text-white px-4 lg:px-6 py-2 rounded-lg font-semibold text-sm lg:text-base"
+                        >
+                            Reserve Your Slot →
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                    <div class="flex flex-col space-y-4">
+                        <a href="about.html" class="text-slate-300 hover:text-conversion-orange transition-colors">About</a>
+                        <a href="services.html" class="text-slate-300 hover:text-conversion-orange transition-colors">Services</a>
+                        <a href="case-studies.html" class="text-slate-300 hover:text-conversion-orange transition-colors">Case Studies</a>
+                        <a href="contact.html" class="text-slate-300 hover:text-conversion-orange transition-colors">Contact</a>
+                        <button
+                            onclick="openContactModal()"
+                            class="cta-button text-white px-6 py-2 rounded-lg font-semibold w-full mt-4"
                         >
                             Reserve Your Slot →
                         </button>
@@ -264,21 +319,21 @@
         </div>
 
         <!-- Hero Section with FOMO -->
-        <section class="pt-32 pb-20 px-6">
+        <section class="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
             <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-12">
+                <div class="text-center mb-8 sm:mb-12">
                     <!-- FOMO Alert -->
                     <div
-                        class="scarcity-box inline-block px-6 py-3 rounded-lg mb-8"
+                        class="scarcity-box inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-lg mb-6 sm:mb-8"
                     >
-                        <p class="text-white font-semibold text-sm">
+                        <p class="text-white font-semibold text-xs sm:text-sm">
                             ⚡ Only 5 new client slots open this quarter
                         </p>
                     </div>
 
                     <!-- Powerful Headline -->
                     <h1
-                        class="text-5xl md:text-7xl font-space font-bold mb-6 leading-tight"
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space font-bold mb-4 sm:mb-6 leading-tight px-2"
                     >
                         <span class="text-white">Missed Deadlines</span><br />
                         <span class="gradient-text">Cost You Millions</span>
@@ -286,10 +341,10 @@
 
                     <!-- Subheadline -->
                     <p
-                        class="text-xl md:text-2xl text-slate-300 mb-8 max-w-4xl mx-auto leading-relaxed"
+                        class="text-lg sm:text-xl md:text-2xl text-slate-300 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-4"
                     >
                         Let Harmen Labs deliver AI-powered development on
-                        time—every time.<br />
+                        time—every time.<br class="hidden sm:block" />
                         <span class="text-conversion-orange font-semibold"
                             >Book your free strategy call before they're
                             gone.</span
@@ -298,15 +353,15 @@
 
                     <!-- Cognitive Dissonance Hook -->
                     <div
-                        class="glass rounded-xl p-6 max-w-3xl mx-auto mb-8 border-l-4 border-urgent-red"
+                        class="glass rounded-xl p-4 sm:p-6 max-w-3xl mx-auto mb-6 sm:mb-8 border-l-4 border-urgent-red"
                     >
-                        <p class="text-lg text-white">
+                        <p class="text-base sm:text-lg text-white">
                             <strong class="text-urgent-red"
                                 >83% of delayed software projects fail ROI
                                 targets</strong
                             >
                             <span class="text-slate-400">(Gartner 2024)</span
-                            ><br />
+                            ><br class="hidden sm:block" />
                             <span class="text-conversion-orange font-bold"
                                 >We guarantee on-time delivery—or pay you
                                 10%.</span
@@ -315,10 +370,10 @@
                     </div>
 
                     <!-- Primary CTA with Urgency -->
-                    <div class="mb-12">
+                    <div class="mb-8 sm:mb-12">
                         <button
                             onclick="openContactModal()"
-                            class="cta-button text-white px-12 py-4 rounded-lg text-xl font-bold mb-4 animate-pulse-orange"
+                            class="cta-button text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg text-lg sm:text-xl font-bold mb-4 animate-pulse-orange"
                         >
                             Reserve Your Slot →
                         </button>
@@ -328,13 +383,13 @@
                     </div>
 
                     <!-- Countdown Timer -->
-                    <div class="glass rounded-xl p-6 max-w-md mx-auto mb-12">
-                        <p class="text-conversion-orange font-semibold mb-2">
+                    <div class="glass rounded-xl p-4 sm:p-6 max-w-md mx-auto mb-8 sm:mb-12">
+                        <p class="text-conversion-orange font-semibold mb-2 text-center">
                             Next intake closes in:
                         </p>
                         <div
                             id="countdown"
-                            class="font-mono text-2xl font-bold animate-countdown"
+                            class="font-mono text-xl sm:text-2xl font-bold animate-countdown text-center"
                         ></div>
                     </div>
                 </div>
@@ -342,47 +397,47 @@
         </section>
 
         <!-- Persuasive Benefits Section -->
-        <section class="py-20 px-6">
+        <section class="py-12 sm:py-20 px-4 sm:px-6">
             <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-space font-bold mb-6">
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-space font-bold mb-4 sm:mb-6 px-2">
                         <span class="text-urgent-red"
                             >Tired of unreliable dev teams</span
                         ><br />
                         <span class="text-white">that vanish mid-project?</span>
                     </h2>
-                    <p class="text-xl text-slate-300 max-w-3xl mx-auto">
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto px-4">
                         Our battle-tested AI agents and development squads
                         guarantee rock-solid releases you can scale without
                         sleepless nights.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    <div class="glass rounded-xl p-8 text-center">
-                        <div class="text-6xl mb-4">🎯</div>
-                        <h3 class="text-xl font-bold mb-3">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                    <div class="glass rounded-xl p-6 sm:p-8 text-center">
+                        <div class="text-4xl sm:text-6xl mb-4">🎯</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3">
                             98% On-Time Delivery
                         </h3>
-                        <p class="text-slate-300">
+                        <p class="text-slate-300 text-sm sm:text-base">
                             Our clients hit their launch milestones on
                             schedule—guaranteed.
                         </p>
                     </div>
-                    <div class="glass rounded-xl p-8 text-center">
-                        <div class="text-6xl mb-4">⚡</div>
-                        <h3 class="text-xl font-bold mb-3">AI-Powered Speed</h3>
-                        <p class="text-slate-300">
+                    <div class="glass rounded-xl p-6 sm:p-8 text-center">
+                        <div class="text-4xl sm:text-6xl mb-4">⚡</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3">AI-Powered Speed</h3>
+                        <p class="text-slate-300 text-sm sm:text-base">
                             Deploy faster with our proprietary AI development
                             accelerators.
                         </p>
                     </div>
-                    <div class="glass rounded-xl p-8 text-center">
-                        <div class="text-6xl mb-4">🛡️</div>
-                        <h3 class="text-xl font-bold mb-3">
+                    <div class="glass rounded-xl p-6 sm:p-8 text-center sm:col-span-2 lg:col-span-1">
+                        <div class="text-4xl sm:text-6xl mb-4">🛡️</div>
+                        <h3 class="text-lg sm:text-xl font-bold mb-3">
                             Zero-Risk Guarantee
                         </h3>
-                        <p class="text-slate-300">
+                        <p class="text-slate-300 text-sm sm:text-base">
                             Miss deadlines by 7+ days? Get 10% of your fee
                             refunded.
                         </p>
@@ -390,10 +445,10 @@
                 </div>
 
                 <!-- Social Proof -->
-                <div class="text-center mb-12">
+                <div class="text-center mb-8 sm:mb-12">
                     <button
                         onclick="openContactModal()"
-                        class="cta-button text-white px-10 py-3 rounded-lg text-lg font-bold"
+                        class="cta-button text-white px-8 sm:px-10 py-3 rounded-lg text-base sm:text-lg font-bold"
                     >
                         Claim Your Free Code Audit →
                     </button>
@@ -1094,13 +1149,13 @@
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="glass rounded-xl p-8 text-center">
-                        <div class="w-24 h-24 mx-auto mb-6">
-                            <img src="haris.png" alt="Haris - Founder & CEO" class="w-24 h-24 rounded-full object-cover border-4 border-conversion-orange/30 shadow-lg">
+                <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+                    <div class="glass rounded-xl p-6 sm:p-8 text-center">
+                        <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6">
+                            <img src="haris.png" alt="Haris - Founder & CEO" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-conversion-orange/30 shadow-lg">
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Haris</h3>
-                        <p class="text-conversion-orange font-semibold mb-4">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Haris</h3>
+                        <p class="text-conversion-orange font-semibold mb-3 sm:mb-4">
                             Founder & CEO
                         </p>
 
@@ -1527,6 +1582,22 @@
                 );
                 hiddenInput.value = "tech_guide_request";
             }
+
+            // Mobile Menu Toggle
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                
+                if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
         </script>
     </body>
 </html>
